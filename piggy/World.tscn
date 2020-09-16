@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/Pig.png" type="Texture" id=1]
-[ext_resource path="res://Pig.gd" type="Script" id=2]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.0
-height = 7.0
+[ext_resource path="res://Pig.tscn" type="PackedScene" id=1]
 
 [node name="World" type="Node"]
 __meta__ = {
@@ -21,18 +16,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pig" type="Area2D" parent="."]
-position = Vector2( 141.022, 99.8477 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Pig"]
-texture = ExtResource( 1 )
-offset = Vector2( 0, -4 )
-hframes = 3
-
-[node name="Collision" type="CollisionShape2D" parent="Pig"]
-rotation = 1.5708
-shape = SubResource( 1 )
+[node name="Pig" parent="." instance=ExtResource( 1 )]
+position = Vector2( 156.68, 87.0858 )
