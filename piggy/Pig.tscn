@@ -42,10 +42,12 @@ tracks/0/keys = {
 }
 
 [node name="Pig" type="Area2D"]
+collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+SPEED = 100.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -2, 0 )
@@ -61,3 +63,4 @@ shape = SubResource( 1 )
 playback_speed = 0.5
 anims/Idle = SubResource( 3 )
 anims/Run = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Pig_area_entered"]

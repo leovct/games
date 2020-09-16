@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Pig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Apple.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node"]
 __meta__ = {
@@ -18,3 +19,39 @@ __meta__ = {
 
 [node name="Pig" parent="." instance=ExtResource( 1 )]
 position = Vector2( 156.68, 87.0858 )
+
+[node name="Apple" parent="." instance=ExtResource( 2 )]
+position = Vector2( 70.8231, 84.4176 )
+
+[node name="Apple2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 259.881, 103.398 )
+
+[node name="Apple3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 206.29, 30.8263 )
+
+[node name="Apple4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 59.918, 35.3553 )
+
+[node name="Apple5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 163.119, 134.659 )
+
+[node name="Apple6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 41.0502, 157.361 )
+
+[node name="Apple7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 92.0363, 136.892 )
+
+[node name="Apple8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 290.771, 165.177 )
+
+[node name="Apple9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 293.004, 35.2923 )
+
+[node name="Apple10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 137.44, 47.5736 )
+
+[node name="Apple11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 198.847, 99.6762 )
+
+[node name="Apple12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 217.083, 153.267 )

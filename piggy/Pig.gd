@@ -30,3 +30,8 @@ func move(xVelocity: float, yVelocity: float, delta: float):
 	position.x += xVelocity * delta
 	position.y += yVelocity * delta
 	moving = true
+
+
+func _on_Pig_area_entered(area):
+	area.queue_free()
+	scale *= 1.1
