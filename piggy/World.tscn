@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Pig.png" type="Texture" id=1]
+[ext_resource path="res://Pig.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
@@ -21,7 +22,8 @@ __meta__ = {
 }
 
 [node name="Pig" type="Area2D" parent="."]
-position = Vector2( 399.194, 223.947 )
+position = Vector2( 141.022, 99.8477 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
