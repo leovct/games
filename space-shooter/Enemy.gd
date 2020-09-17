@@ -19,7 +19,7 @@ func _on_Enemy_area_entered(area) -> void:
 		# increase player's score
 		var mainNode = get_tree().current_scene
 		if mainNode.is_in_group("World"):
-			mainNode.score += 10
+			mainNode.score += 10 * scale.x
 		# destroy the enemy
 		queue_free()
 
@@ -34,8 +34,5 @@ func _exit_tree() -> void:
 	# add it as a child of the main node
 	var mainNode: Node = get_tree().current_scene
 	mainNode.call_deferred("add_child", explosionEffect)
-	#mainNode.add_child(explosionEffect)
 	# set its position
 	explosionEffect.global_position = global_position
-	# scale the explosion by 4
-	explosionEffect.scale *= 4

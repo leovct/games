@@ -8,31 +8,28 @@ script = ExtResource( 1 )
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 46 )
+position = Vector2( 0, 20 )
 
 [node name="Position2D2" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 110 )
+position = Vector2( 0, 40 )
 
 [node name="Position2D3" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 174 )
+position = Vector2( 0, 60 )
 
 [node name="Position2D4" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 238 )
+position = Vector2( 0, 80 )
 
 [node name="Position2D5" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 302 )
+position = Vector2( 0, 100 )
 
 [node name="Position2D6" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 366 )
+position = Vector2( 0, 120 )
 
 [node name="Position2D7" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 430 )
+position = Vector2( 0, 140 )
 
 [node name="Position2D8" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 494 )
-
-[node name="Position2D9" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 558 )
+position = Vector2( 0, 160 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -1,6 +1,6 @@
 extends Area2D
 
-export(int) var VELOCITY = 200
+export(int) var VELOCITY = 100
 
 # move the bullet from the left to the right of the screen
 func _process(delta) -> void:

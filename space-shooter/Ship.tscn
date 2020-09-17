@@ -4,7 +4,6 @@
 [ext_resource path="res://Ship.gd" type="Script" id=2]
 
 [node name="Ship" type="Area2D"]
-scale = Vector2( 4, 4 )
 collision_mask = 2
 script = ExtResource( 2 )
 __meta__ = {
