@@ -6,13 +6,13 @@ onready var spawnPoints = $SpawnPoints
 var rng = RandomNumberGenerator.new()
 
 # get a random spawn point out of all the spawn points
-func get_spawn_point() -> Vector2:
+func get_spawn_point():
 	var points: Array = spawnPoints.get_children()
 	points.shuffle()
 	return points[0].global_position
 
 # spawn an enemy on the screen
-func spawn_enemy() -> void:
+func spawn_enemy():
 	# instance a new enemy
 	var enemy = Enemy.instance()
 	# add it has a child of the main node
@@ -25,5 +25,5 @@ func spawn_enemy() -> void:
 	enemy.scale *= (1 + rng.randf_range(0.0,2.0))
 
 # timer called every x seconds
-func _on_Timer_timeout() -> void:
+func _on_Timer_timeout():
 	spawn_enemy()

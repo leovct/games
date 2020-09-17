@@ -3,6 +3,8 @@ extends Area2D
 const Bullet = preload("res://Bullet.tscn") # pack scene
 const ExplosionEffect = preload("res://ExplosionEffect.tscn")
 
+onready var hitSound = $ShipHitSound
+
 export(int) var VELOCITY = 100
 
 # handles movement and shooting
@@ -28,17 +30,19 @@ func shoot():
 
 # handles collision between the ship and an enemy
 func _on_Ship_area_entered(area):
-	# destroy the ship
-	queue_free()
 	# destroy the enemy
 	area.queue_free()
+	# destroy the ship
+	hitSound.play()
+	yield(hitSound, "finished") # wait for the sound to end
+	queue_free()
 
 # load explosion when the enemy dies
-func _exit_tree() -> void:
+func _exit_tree():
 	# instance a new explosion
 	var explosionEffect = ExplosionEffect.instance()
 	# add it as a child of the main node
-	var mainNode: Node = get_tree().current_scene
+	var mainNode = get_tree().current_scene
 	mainNode.call_deferred("add_child", explosionEffect)
 	# set its position
 	explosionEffect.global_position = global_position
