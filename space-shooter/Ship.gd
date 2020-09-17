@@ -4,6 +4,7 @@ const Bullet = preload("res://Bullet.tscn") # pack scene
 
 export(int) var VELOCITY = 100
 
+# handles movement and shooting
 func _process(delta):
 	# movement
 	if Input.is_action_pressed("ui_up"):
@@ -14,6 +15,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		shoot()
 
+# shoot a bullet
 func shoot():
 	# instance a new bullet
 	var bullet = Bullet.instance()
@@ -23,7 +25,9 @@ func shoot():
 	# set its position
 	bullet.global_position = global_position
 
-
+# handles collision between the ship and an enemy
 func _on_Ship_area_entered(area):
+	# destroy the ship
 	queue_free()
+	# destroy the enemy
 	area.queue_free()

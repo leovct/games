@@ -2,9 +2,10 @@ extends Area2D
 
 export(int) var VELOCITY = 200
 
-func _process(delta):
+# move the bullet from the left to the right of the screen
+func _process(delta) -> void:
 	position.x += VELOCITY * delta
 
-
-func _on_VisibilityNotifier2D_screen_exited():
+# destroy a bullet when it exits the screen
+func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
