@@ -1,6 +1,7 @@
 extends Area2D
 
 const Bullet = preload("res://Bullet.tscn") # pack scene
+const ExplosionEffect = preload("res://ExplosionEffect.tscn")
 
 export(int) var VELOCITY = 100
 
@@ -31,3 +32,15 @@ func _on_Ship_area_entered(area):
 	queue_free()
 	# destroy the enemy
 	area.queue_free()
+
+# load explosion when the enemy dies
+func _exit_tree() -> void:
+	# instance a new explosion
+	var explosionEffect = ExplosionEffect.instance()
+	# add it as a child of the main node
+	var mainNode: Node = get_tree().current_scene
+	mainNode.add_child(explosionEffect)
+	# set its position
+	explosionEffect.global_position = global_position
+	# scale the explosion by 4
+	explosionEffect.scale *= 4
