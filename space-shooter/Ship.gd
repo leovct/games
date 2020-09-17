@@ -22,3 +22,8 @@ func shoot():
 	rootNode.add_child(bullet)
 	# set its position
 	bullet.global_position = global_position
+
+
+func _on_Ship_area_entered(area):
+	queue_free()
+	area.queue_free()

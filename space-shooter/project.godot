@@ -42,6 +42,12 @@ texture={
 "svg/scale": 1.0
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ship"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Bullets"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
