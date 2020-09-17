@@ -1,5 +1,7 @@
 extends Area2D
 
+signal player_death
+
 const Bullet = preload("res://Bullet.tscn") # pack scene
 const ExplosionEffect = preload("res://ExplosionEffect.tscn")
 
@@ -35,6 +37,7 @@ func _on_Ship_area_entered(area):
 	# destroy the ship
 	hitSound.play()
 	yield(hitSound, "finished") # wait for the sound to end
+	emit_signal("player_death")
 	queue_free()
 
 # load explosion when the enemy dies

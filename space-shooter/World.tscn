@@ -46,3 +46,4 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+[connection signal="player_death" from="Ship" to="." method="_on_Ship_player_death"]
