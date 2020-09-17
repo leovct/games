@@ -39,7 +39,8 @@ func _exit_tree() -> void:
 	var explosionEffect = ExplosionEffect.instance()
 	# add it as a child of the main node
 	var mainNode: Node = get_tree().current_scene
-	mainNode.add_child(explosionEffect)
+	mainNode.call_deferred("add_child", explosionEffect)
+	#mainNode.add_child(explosionEffect)
 	# set its position
 	explosionEffect.global_position = global_position
 	# scale the explosion by 4
