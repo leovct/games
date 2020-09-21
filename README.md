@@ -11,11 +11,12 @@ _If you want to try one of them, you can [download Godot](https://godotengine.or
 ## Table of contents
 <detail>
 
+- [**Space Shooter :gun:**](#space-shooter-gun)
 - [**Piggy :pig:**](#piggy-pig)
 - [**Rocket Launch :rocket:**](#rocket-launch-rocket)
 </details>
 
-## Space Shooter :rocket:
+## Space Shooter :gun:
 ![Space Shooter](img/space-shooter.png)
 Defend your spaceship and shoot all the invaders.
 
