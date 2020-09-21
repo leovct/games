@@ -33,4 +33,3 @@ custom_fonts/font = ExtResource( 1 )
 text = "Press space to start"
 
 [node name="StarParticles" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320, 90 )

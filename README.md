@@ -15,6 +15,10 @@ _If you want to try one of them, you can [download Godot](https://godotengine.or
 - [**Rocket Launch :rocket:**](#rocket-launch-rocket)
 </details>
 
+## Space Shooter :rocket:
+![Space Shooter](img/space-shooter.png)
+Defend your spaceship and shoot all the invaders.
+
 ## Piggy :pig:
 ![Piggy](img/piggy.png)
 Eat all the apples as fast as possible.
