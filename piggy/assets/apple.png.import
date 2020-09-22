@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pig.png-478eee2f8b49f7a84fc384014b495b01.stex"
+path="res://.import/apple.png-d0c5a0e024efc439723035186c67a74a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pig.png"
-dest_files=[ "res://.import/Pig.png-478eee2f8b49f7a84fc384014b495b01.stex" ]
+source_file="res://assets/apple.png"
+dest_files=[ "res://.import/apple.png-d0c5a0e024efc439723035186c67a74a.stex" ]
 
 [params]
 
