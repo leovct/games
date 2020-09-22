@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RocketShip.png-b4e69101327d6666e64979c1be228abe.stex"
+path="res://.import/launch-button.png-94e1b8bef14ddbdb43f23496b8fc5a3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/RocketShip.png"
-dest_files=[ "res://.import/RocketShip.png-b4e69101327d6666e64979c1be228abe.stex" ]
+source_file="res://assets/launch-button.png"
+dest_files=[ "res://.import/launch-button.png-94e1b8bef14ddbdb43f23496b8fc5a3f.stex" ]
 
 [params]
 

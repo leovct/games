@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RocketShipLaunch.png-224675ea466efcc00c23dacc4db88132.stex"
+path="res://.import/rocket-ship-launch.png-4bfa19b2fb62d78a7d8f4f41b8ffd581.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/RocketShipLaunch.png"
-dest_files=[ "res://.import/RocketShipLaunch.png-224675ea466efcc00c23dacc4db88132.stex" ]
+source_file="res://assets/rocket-ship-launch.png"
+dest_files=[ "res://.import/rocket-ship-launch.png-4bfa19b2fb62d78a7d8f4f41b8ffd581.stex" ]
 
 [params]
 
