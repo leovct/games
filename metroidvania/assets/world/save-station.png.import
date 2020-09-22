@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SolidBlack.png-3b869f44336c18f72e6728c7cc93e0e7.stex"
+path="res://.import/save-station.png-bb07e6a1286ab34bb2bc757feda49e05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/World/SolidBlack.png"
-dest_files=[ "res://.import/SolidBlack.png-3b869f44336c18f72e6728c7cc93e0e7.stex" ]
+source_file="res://assets/world/save-station.png"
+dest_files=[ "res://.import/save-station.png-bb07e6a1286ab34bb2bc757feda49e05.stex" ]
 
 [params]
 

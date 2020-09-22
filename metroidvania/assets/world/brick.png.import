@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-33776126ed51360fca6a3b31b8228040.stex"
+path="res://.import/brick.png-3ac7fb1e792bc87a523b2637ad809cf3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/World/Door.png"
-dest_files=[ "res://.import/Door.png-33776126ed51360fca6a3b31b8228040.stex" ]
+source_file="res://assets/world/brick.png"
+dest_files=[ "res://.import/brick.png-3ac7fb1e792bc87a523b2637ad809cf3.stex" ]
 
 [params]
 

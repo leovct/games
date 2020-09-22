@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://assets/World/Brick.png" type="Texture" id=1]
-
-[node name="World" type="Node"]
-
-[node name="Brick" type="Sprite" parent="."]
-position = Vector2( 544, 307 )
-texture = ExtResource( 1 )
