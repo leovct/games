@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/world.gd" type="Script" id=2]
+[ext_resource path="res://scenes/enemyt-spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/music.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/fonts/pixel-font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/star-particles.tscn" type="PackedScene" id=6]
+
+
+
+
+
+
+
+
+
+[node name="World" type="Node" groups=[
+"World",
+]]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StarParticles" parent="." instance=ExtResource( 6 )]
+
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30, 90 )
+z_index = 1
+VELOCITY = 200
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 0 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 4.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 5 )
+text = "Score: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+[connection signal="player_death" from="Ship" to="." method="_on_Ship_player_death"]

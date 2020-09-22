@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="space-shooter"
-run/main_scene="res://Menu.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-SaveAndLoad="*res://SaveAndLoad.gd"
+SaveAndLoad="*res://scripts/save-and-load.gd"
 
 [display]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/bullet.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/laser.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 3 )
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 1 )
+VELOCITY = 200
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.5, 2.38419e-07 )
+scale = Vector2( 0.45, 0.4 )
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+[connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
