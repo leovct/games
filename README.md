@@ -3,6 +3,7 @@
 </div>
 
 # Godot games and prototypes :video_game:
+![godot-ci export](https://github.com/leovct/godot/workflows/godot-ci%20export/badge.svg?branch=master&event=push)
 
 This repository contains games and prototypes that I developed using the game engine [Godot](https://godotengine.org/).  
 
