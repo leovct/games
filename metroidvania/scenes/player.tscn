@@ -63,3 +63,8 @@ polygon = PoolVector2Array( -5, -4, 3, -4, 3, -3, 4, -3, 4, -2, 5, -2, 5, 4, 4, 
 anims/Idle = SubResource( 1 )
 anims/Jump = SubResource( 3 )
 anims/Run = SubResource( 2 )
+
+[node name="CameraFollow" type="RemoteTransform2D" parent="."]
+position = Vector2( 0, 4 )
+update_rotation = false
+update_scale = false
