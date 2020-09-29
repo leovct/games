@@ -9,17 +9,24 @@ export (int) var MAX_SLOPE_ANGLE = 46
 
 onready var sprite = $Sprite
 onready var spriteAnimator = $AnimationPlayer
+onready var coyoteJumpTimer = $CoyoteJumpTimer # help player jump 0.2 after leaving the platform
 
 var motion = Vector2.ZERO
 var snap_vector = Vector2.ZERO
+var just_jumped = false
 
 func _physics_process(delta):
 	var input_vector = get_input_vector()
 	apply_forces(input_vector, delta)
+	just_jumped = false
 	jump_check()
 	update_animations(input_vector)
 	var last_position = position
+	var was_on_floor = is_on_floor()
 	motion = move_and_slide_with_snap(motion, snap_vector, Vector2.UP, false, 4, deg2rad(MAX_SLOPE_ANGLE))
+	# just after leaving the ground
+	if was_on_floor and not is_on_floor() and not just_jumped:
+		coyoteJumpTimer.start()
 	# small hack to prevent sliding on slopes
 	if is_on_floor() and get_floor_velocity().length() == 0 and abs(motion.x) < 1:
 		position = last_position
@@ -43,10 +50,11 @@ func apply_forces(input_vector, delta):
 		motion.y = min(motion.y, JUMP_FORCE)
 
 func jump_check():
-	if is_on_floor():
+	if is_on_floor() or coyoteJumpTimer.time_left > 0:
 		if Input.is_action_just_pressed("ui_up"):
 			snap_vector = Vector2.ZERO
 			motion.y = -JUMP_FORCE
+			just_jumped = true
 	else:
 		if Input.is_action_just_released("ui_up") && motion.y < -JUMP_FORCE/2:
 			snap_vector = Vector2.ZERO
