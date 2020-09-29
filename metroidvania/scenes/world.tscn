@@ -43,4 +43,12 @@ position = Vector2( 49, 141 )
 current = true
 smoothing_enabled = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+modulate = Color( 0.941176, 0.941176, 0.941176, 1 )
+polygon = PoolVector2Array( -80, 0, -64, 0, -64, 224, 176, 224, 208, 208, 256, 208, 288, 176, 320, 176, 320, 144, 384, 144, 384, 0, 400, 0, 400, 256, -80, 256 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+
 [editable path="Player"]
