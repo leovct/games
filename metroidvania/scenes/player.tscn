@@ -48,16 +48,34 @@ tracks/0/keys = {
 "points": PoolRealArray( 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 7, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 9, -0.25, 0, 0.25, 0, 7, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 )
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "create_dust_effect"
+}, {
+"args": [  ],
+"method": "create_dust_effect"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -66,7 +84,7 @@ anims/Jump = SubResource( 3 )
 anims/Run = SubResource( 4 )
 
 [node name="CameraFollow" type="RemoteTransform2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 0, -8 )
 update_rotation = false
 update_scale = false
 
