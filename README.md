@@ -3,7 +3,7 @@
 </div>
 
 # Godot games and prototypes :video_game:
-![godot-ci export](https://github.com/leovct/godot/workflows/godot-ci%20export/badge.svg?branch=master&event=push)
+![godot-ci export](https://github.com/leovct/godot/workflows/godot-ci%20export/badge.svg?branch=jam-gwj26&event=push)
 
 **This repository contains games and prototypes that I developed using the game engine [Godot](https://godotengine.org/).**  
 
@@ -13,11 +13,14 @@ _If you want to try one of them, **you can visit this [website](https://leovct.g
 ## Table of contents
 <detail>
 
+- [**Godot Wild Jam 26**](#godot-wild-jam-26)
 - [**Space Shooter :gun:**](#space-shooter-gun)
 - [**Piggy :pig:**](#piggy-pig)
 - [**Rocket Launch :rocket:**](#rocket-launch-rocket)
 </details>
 
+## Godot Wild Jam 26
+Work in progress...
 
 ## Space Shooter :gun:
 ![Space Shooter](img/space-shooter.png)
