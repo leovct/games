@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/wood-3.png" type="Texture" id=9]
 [ext_resource path="res://assets/grass-1.png" type="Texture" id=10]
 [ext_resource path="res://assets/tree-1.png" type="Texture" id=11]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -18,7 +19,7 @@ script = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 MOVE_SPEED = 50
 
-[node name="RemoteTransform2D" parent="Player" index="3"]
+[node name="RemoteTransform2D" parent="Player" index="2"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -64,5 +65,11 @@ texture = ExtResource( 5 )
 [node name="grass-1" type="Sprite" parent="Nature"]
 position = Vector2( -27, 22.75 )
 texture = ExtResource( 10 )
+
+[node name="Enemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( -111.596, 71.5137 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 82.5582, 74.5577 )
 
 [editable path="Player"]
