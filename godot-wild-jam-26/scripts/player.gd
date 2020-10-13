@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export onready var sprite = $Sprite
 export onready var animationPlayer = $AnimationPlayer
+export onready var collisionShape = $CollisionPolygon2D
 
 export var MOVE_SPEED = 200
 
@@ -32,9 +33,11 @@ func run(delta):
 	if Input.is_action_pressed("ui_right"):
 		move.x += 1
 		sprite.flip_h = 0
+		collisionShape.scale.x = 1
 	if Input.is_action_pressed("ui_left"):
 		move.x -= 1
 		sprite.flip_h = 1
+		collisionShape.scale.x = -1
 	if Input.is_action_pressed("ui_up"):
 		move.y -= 1
 	if Input.is_action_pressed("ui_down"):
