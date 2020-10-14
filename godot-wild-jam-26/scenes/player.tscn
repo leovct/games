@@ -54,11 +54,11 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+MOVE_SPEED = 50
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 12
-frame = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -1, -6, 3, -6, 3, 3, 2, 3, 2, 8, -1, 8, -1, 4, -2, 4, -2, -2, -1, -2 )
@@ -72,7 +72,4 @@ autoplay = "Idle"
 anims/Idle = SubResource( 1 )
 anims/Run = SubResource( 2 )
 anims/Shoot = SubResource( 3 )
-
-[node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 7, 0 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
