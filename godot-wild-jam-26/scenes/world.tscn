@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
 [ext_resource path="res://assets/tree-2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Staatliches-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/mamoth-ui.png" type="Texture" id=5]
 [ext_resource path="res://assets/tree-1.png" type="Texture" id=11]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/nature.tscn" type="PackedScene" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+use_filter = true
+font_data = ExtResource( 4 )
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -54,13 +61,40 @@ texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_bottom = 14.0
-text = "Score : 0"
+margin_bottom = 21.0
+grow_vertical = 0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 21.0
+alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 290.0
+margin_right = 295.0
+margin_bottom = 16.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.607843, 0.172549, 0.172549, 1 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTexture" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 299.0
+margin_right = 315.0
+margin_bottom = 16.0
+texture = ExtResource( 5 )
 
 [editable path="Player"]
 
