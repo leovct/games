@@ -72,4 +72,7 @@ autoplay = "Idle"
 anims/Idle = SubResource( 1 )
 anims/Run = SubResource( 2 )
 anims/Shoot = SubResource( 3 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 7, 0 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

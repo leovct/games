@@ -1,17 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
 [ext_resource path="res://assets/tree-2.png" type="Texture" id=3]
-[ext_resource path="res://assets/dead-tree.png" type="Texture" id=4]
-[ext_resource path="res://assets/wood-1.png" type="Texture" id=5]
-[ext_resource path="res://assets/grass-4.png" type="Texture" id=6]
-[ext_resource path="res://assets/grass-3.png" type="Texture" id=7]
-[ext_resource path="res://assets/grass-2.png" type="Texture" id=8]
-[ext_resource path="res://assets/wood-3.png" type="Texture" id=9]
-[ext_resource path="res://assets/grass-1.png" type="Texture" id=10]
 [ext_resource path="res://assets/tree-1.png" type="Texture" id=11]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/nature.tscn" type="PackedScene" id=13]
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -25,51 +19,39 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Nature" type="Node2D" parent="."]
-
-[node name="palm-tree" type="Sprite" parent="Nature"]
-position = Vector2( -9.56533, -20.765 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 11 )
-
-[node name="grass-3" type="Sprite" parent="Nature"]
-position = Vector2( -19.5, -3.25 )
-texture = ExtResource( 7 )
-
-[node name="tree-2" type="Sprite" parent="Nature"]
-position = Vector2( 68.5, -1.5 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
-
-[node name="grass-4" type="Sprite" parent="Nature"]
-position = Vector2( 69.25, 16.5 )
-texture = ExtResource( 6 )
-
-[node name="dead-tree" type="Sprite" parent="Nature"]
-position = Vector2( 31.3532, 16.487 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-
-[node name="grass-2" type="Sprite" parent="Nature"]
-position = Vector2( 33.5, 24.5 )
-texture = ExtResource( 8 )
-
-[node name="wood-3" type="Sprite" parent="Nature"]
-position = Vector2( -15.75, 24.75 )
-texture = ExtResource( 9 )
-
-[node name="wood-1" type="Sprite" parent="Nature"]
-position = Vector2( -20.75, 22.75 )
-texture = ExtResource( 5 )
-
-[node name="grass-1" type="Sprite" parent="Nature"]
-position = Vector2( -27, 22.75 )
-texture = ExtResource( 10 )
-
 [node name="Enemy" parent="." instance=ExtResource( 12 )]
 position = Vector2( -111.596, 71.5137 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 82.5582, 74.5577 )
 
+[node name="Nature" type="Node2D" parent="."]
+
+[node name="Tree1_1" parent="Nature" instance=ExtResource( 13 )]
+position = Vector2( -57.3792, 0.297302 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" parent="Nature/Tree1_1" index="0"]
+texture = ExtResource( 11 )
+
+[node name="Tree1_2" parent="Nature" instance=ExtResource( 13 )]
+position = Vector2( -99.8535, 20.5906 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" parent="Nature/Tree1_2" index="0"]
+texture = ExtResource( 11 )
+
+[node name="Tree2_1" parent="Nature" instance=ExtResource( 13 )]
+position = Vector2( 59.9978, 74.1276 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" parent="Nature/Tree2_1" index="0"]
+texture = ExtResource( 3 )
+
 [editable path="Player"]
+
+[editable path="Nature/Tree1_1"]
+
+[editable path="Nature/Tree1_2"]
+
+[editable path="Nature/Tree2_1"]

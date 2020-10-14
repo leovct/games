@@ -1,16 +1,21 @@
 extends KinematicBody2D
 
+const Arrow = preload("res://scenes/arrow.tscn")
+
 export onready var sprite = $Sprite
 export onready var animationPlayer = $AnimationPlayer
 export onready var collisionShape = $CollisionPolygon2D
+export onready var muzzle = $Muzzle
 
 export var MOVE_SPEED = 200
 
 enum States {IDLE, RUN, SHOOT}
 var state
+var can_shoot
 
 func _ready():
 	state = States.IDLE
+	can_shoot = true
 
 func _physics_process(delta):
 	match state:
@@ -19,7 +24,7 @@ func _physics_process(delta):
 		States.RUN:
 			run(delta)
 		States.SHOOT:
-			animationPlayer.play("Shoot")
+			shoot()
 
 func idle():
 	animationPlayer.play("Idle")
@@ -54,6 +59,18 @@ func run(delta):
 	
 	var _return = move_and_collide(move * MOVE_SPEED * delta)
 
+func shoot():
+	animationPlayer.play("Shoot")
+	
+	if can_shoot:
+		var arrow = Arrow.instance()
+		var root_node = get_tree().current_scene
+		root_node.add_child(arrow)
+		arrow.global_position = global_position
+		arrow.transform = muzzle.global_transform
+		can_shoot = false
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Shoot":
 		state = States.IDLE
+		can_shoot = true
