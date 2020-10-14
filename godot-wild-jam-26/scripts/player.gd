@@ -12,6 +12,8 @@ enum States {IDLE, RUN, SHOOT}
 var state
 var can_shoot
 
+var score = 0
+
 func _ready():
 	state = States.IDLE
 	can_shoot = true
@@ -67,9 +69,13 @@ func shoot():
 		root_node.add_child(arrow)
 		arrow.rotation = get_angle_to(get_global_mouse_position())
 		arrow.global_position = global_position		
+		arrow.connect("enemy_shot", self, "_on_player_has_shot_an_enemy")
 		can_shoot = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Shoot":
 		state = States.IDLE
 		can_shoot = true
+
+func _on_player_has_shot_an_enemy():
+	score += 1

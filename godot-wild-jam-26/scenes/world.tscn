@@ -52,6 +52,16 @@ scale = Vector2( 3, 3 )
 [node name="Sprite" parent="Nature/Tree2_1" index="0"]
 texture = ExtResource( 3 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_bottom = 14.0
+text = "Score : 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [editable path="Player"]
 
 [editable path="Nature/Tree1_1"]

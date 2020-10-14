@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var attack_timer = $AttackTimer
+onready var animationPlayer = $AnimationPlayer
 
 export var SPEED = 2000
 var move = Vector2.ZERO
@@ -11,10 +12,14 @@ var dead = false
 func _physics_process(delta):
 	if player && !dead:
 		move = position.direction_to(player.position)
+		animationPlayer.play("Move")
 	else:
 		move = Vector2.ZERO
 	move = move.normalized()
 	var _return = move_and_slide(move * SPEED * delta)
+	
+	if dead:
+		animationPlayer.play("Dead")		
 
 func _on_DetectionArea_body_entered(body):
 	if body.get_name() == "Player":
@@ -35,3 +40,10 @@ func _on_AttackArea_body_exited(body):
 func _on_AttackTimer_timeout():
 	if can_attack && !dead:
 		print("Attack !")
+
+func _on_PerspectiveArea_body_entered(body):
+	body.z_index = z_index + 1
+
+func _on_PerspectiveArea_body_exited(body):
+	body.z_index -= 1
+	
