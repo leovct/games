@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.02583, 4.02213 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Dead"
 length = 0.1
 loop = true
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Move"
 length = 0.6
 loop = true
@@ -40,10 +40,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=4]
 radius = 59.5047
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=5]
 radius = 7.16919
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -60,18 +60,18 @@ hframes = 8
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dead = SubResource( 4 )
-anims/Move = SubResource( 5 )
+anims/Dead = SubResource( 2 )
+anims/Move = SubResource( 3 )
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="DetectionRange" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackRange" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 autostart = true

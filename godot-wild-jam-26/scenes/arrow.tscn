@@ -6,10 +6,12 @@
 [node name="Arrow" type="Area2D"]
 gravity_distance_scale = 10.0
 script = ExtResource( 2 )
+SPEED = 150
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 8, 8 )
 texture = ExtResource( 1 )
+hframes = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0, 0, 8, 0, 8, 1, 9, 1, 9, 2, 8, 2, 8, 3, 0, 3 )

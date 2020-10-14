@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var attack_timer = $AttackTimer
 onready var animationPlayer = $AnimationPlayer
+onready var sprite = $Sprite
+onready var collisionShape = $CollisionShape
 
 export var SPEED = 2000
 var move = Vector2.ZERO
@@ -12,6 +14,12 @@ var dead = false
 func _physics_process(delta):
 	if player && !dead:
 		move = position.direction_to(player.position)
+		if move.x >= 0:
+			sprite.flip_h = 0
+			collisionShape.scale.x = 1
+		else:
+			sprite.flip_h = 1
+			collisionShape.scale.x = -1
 		animationPlayer.play("Move")
 	else:
 		move = Vector2.ZERO
