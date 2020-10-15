@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="godot-wild-jam-26"
 run/main_scene="res://scenes/menu.tscn"
-config/icon="res://assets/mamoth-ui.png"
+config/icon="res://icon.png"
 
 [display]
 

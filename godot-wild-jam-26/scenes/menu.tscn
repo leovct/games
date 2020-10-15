@@ -36,7 +36,6 @@ __meta__ = {
 margin_right = 320.0
 margin_bottom = 14.0
 size_flags_vertical = 2
-align = 1
 valign = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
