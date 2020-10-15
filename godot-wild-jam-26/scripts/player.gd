@@ -8,6 +8,8 @@ export onready var collisionShape = $CollisionPolygon2D
 
 export var MOVE_SPEED = 200
 
+const WORLD_SIZE = 500
+
 enum States {IDLE, RUN, SHOOT}
 var state
 var can_shoot
@@ -36,17 +38,17 @@ func idle():
 
 func run(delta):
 	var move = Vector2()
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right") and position.x <= WORLD_SIZE:
 		move.x += 1
 		sprite.flip_h = 0
 		collisionShape.scale.x = 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") and position.x >= -WORLD_SIZE:
 		move.x -= 1
 		sprite.flip_h = 1
 		collisionShape.scale.x = -1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up") and position.y >= -WORLD_SIZE:
 		move.y -= 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down") and position.y <= WORLD_SIZE:
 		move.y += 1
 	move = move.normalized()
 	

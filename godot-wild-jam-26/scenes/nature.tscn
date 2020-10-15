@@ -3,16 +3,17 @@
 [ext_resource path="res://scripts/nature.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.01788, 8.02451 )
+extents = Vector2( 24, 8 )
 
 [node name="Nature" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8, -8 )
+position = Vector2( 24, -24 )
+scale = Vector2( 3, 3 )
 
-[node name="DetectionArea" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 8 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 24, 8 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_Nature_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Nature_body_exited"]
