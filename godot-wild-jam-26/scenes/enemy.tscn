@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/big-mamoth.png" type="Texture" id=2]
+[ext_resource path="res://assets/shadow-mamoth.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.02583, 4.02213 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.90667
 
 [sub_resource type="Animation" id=2]
 resource_name = "Dead"
@@ -24,7 +25,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Move"
+resource_name = "Run"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -39,29 +40,52 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "create_dust_effect"
+}, {
+"args": [  ],
+"method": "create_dust_effect"
+} ]
+}
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 59.5047
+radius = 500.0
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 7.16919
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 7.98563, 7.94644 )
 
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
+SPEED = 5000
+
+[node name="ShadowSprite" type="Sprite" parent="."]
+position = Vector2( -1, 8 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 8
+frame = 4
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.0350766 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dead = SubResource( 2 )
-anims/Move = SubResource( 3 )
+anims/Run = SubResource( 3 )
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
