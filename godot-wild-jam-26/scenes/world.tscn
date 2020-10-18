@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
@@ -20,7 +20,7 @@ size = 10
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Die"
 length = 0.2
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Fade in"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fader:color")
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Hit"
 length = 0.5
 tracks/0/type = "value"
@@ -66,9 +66,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0.517647, 0.168627, 0.168627, 0.631373 ), Color( 0.517647, 0.168627, 0.168627, 0 ) ]
 }
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 300.0
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -150,22 +147,6 @@ margin_bottom = 16.0
 texture = ExtResource( 5 )
 stretch_mode = 4
 
-[node name="TooFarLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-visible = false
-margin_top = 20.0
-margin_right = 315.0
-margin_bottom = 175.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.607843, 0.172549, 0.172549, 1 )
-text = "You are going too far !"
-align = 1
-valign = 2
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Fader" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -192,9 +173,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 autoplay = "Fade in"
-anims/Die = SubResource( 7 )
-"anims/Fade in" = SubResource( 5 )
-anims/Hit = SubResource( 6 )
+anims/Die = SubResource( 2 )
+"anims/Fade in" = SubResource( 3 )
+anims/Hit = SubResource( 4 )
 
 [node name="Wood" type="Node2D" parent="."]
 
@@ -655,17 +636,9 @@ current = true
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
 
-[node name="Border" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Border"]
-shape = SubResource( 2 )
-
 [node name="DieTimer" type="Timer" parent="."]
 
 [node name="VictoryTimer" type="Timer" parent="."]
-[connection signal="body_entered" from="Border" to="." method="_on_Border_body_entered"]
-[connection signal="body_exited" from="Border" to="." method="_on_Border_body_exited"]
 [connection signal="timeout" from="DieTimer" to="." method="_on_DieTimer_timeout"]
 [connection signal="timeout" from="VictoryTimer" to="." method="_on_VictoryTimer_timeout"]
 

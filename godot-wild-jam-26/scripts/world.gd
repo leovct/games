@@ -20,7 +20,6 @@ onready var score_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContain
 onready var heart1 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart1
 onready var heart2 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart2
 onready var heart3 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart3
-onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabel
 onready var animation_player = $CanvasLayer/AnimationPlayer
 onready var screen_shake = $Camera2D/ScreenShake
 onready var die_timer = $DieTimer
@@ -34,7 +33,6 @@ export var GRASS_INSTANCES = 1000
 export var WOOD_INSTANCES = 100
 export var EMPTY_RADIUS = 50
 
-#var blink_timer
 var enemies
 var alive_enemies
 var dead = false
@@ -194,29 +192,6 @@ func rand_spawn(min_radius, max_radius):
 	else:
 		rand_pos = rng.randf_range(-max_radius, -min_radius)
 	return rand_pos
-
-func _on_blink_timeout():
-	if toofar_label.percent_visible == 1:
-		toofar_label.percent_visible = 0
-	else:
-		toofar_label.percent_visible = 1
-
-func start_blinking(_interval):
-	toofar_label.percent_visible = 1
-	#blink_timer.set_wait_time(interval)
-	#blink_timer.start()
-
-func stop_blinking():
-	toofar_label.percent_visible = 0
-	#blink_timer.stop()
-
-func _on_Border_body_entered(_body):
-	#if blink_timer:
-	#	stop_blinking()
-	pass
-
-func _on_Border_body_exited(_body):
-	start_blinking(0.5)
 
 func _on_enemy_attacked_a_player(damage):
 	player.health -= damage
