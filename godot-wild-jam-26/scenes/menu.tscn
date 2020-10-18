@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/mamoth-ui.png" type="Texture" id=2]
@@ -12,6 +12,21 @@ font_data = ExtResource( 1 )
 size = 8
 outline_color = Color( 0.97, 0.94, 0.94, 0 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fade in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fader:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="Menu" type="Node"]
 script = ExtResource( 3 )
@@ -67,3 +82,15 @@ valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fader" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fade in"
+"anims/Fade in" = SubResource( 3 )

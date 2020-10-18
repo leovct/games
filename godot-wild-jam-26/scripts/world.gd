@@ -8,6 +8,7 @@ const Grass4 = preload("res://assets/grass-4.png")
 
 onready var player = $Player
 onready var score_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/ScoreLabel
+onready var health_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/HealthLabel
 onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabel
 
 export var WORLD_SIZE = 500
@@ -43,6 +44,10 @@ func _process(_delta):
 		spawn()
 	
 	score_label.text = str(player.score) + '/10'
+	health_label.text = str(player.health)
+	
+	if player.health <= 0:
+		var _r = get_tree().change_scene("res://scenes/deadScene.tscn")
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var _r = get_tree().change_scene("res://scenes/menu.tscn")
@@ -90,7 +95,7 @@ func spawn():
 	var root_node = get_tree().current_scene
 	root_node.get_node("Enemies").add_child(enemy)
 	enemy.global_position = Vector2(rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE), rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE))
-	#arrow.connect("enemy_shot", self, "_on_player_has_shot_an_enemy")
+	enemy.connect("attack_player", self, "_on_enemy_attacked_a_player")
 
 func rand_spawn(min_radius, max_radius):
 	rng.randomize()
@@ -123,3 +128,6 @@ func _on_Border_body_entered(_body):
 
 func _on_Border_body_exited(_body):
 	start_blinking(0.5)
+
+func _on_enemy_attacked_a_player(damage):
+	player.health -= damage
