@@ -74,7 +74,7 @@ func shoot():
 	if can_shoot:
 		var arrow = Arrow.instance()
 		var root_node = get_tree().current_scene
-		root_node.add_child(arrow)
+		root_node.get_node("Arrows").add_child(arrow)
 		arrow.rotation = get_angle_to(get_global_mouse_position())
 		arrow.global_position = global_position	
 		arrow.connect("enemy_shot", self, "_on_player_has_shot_an_enemy")

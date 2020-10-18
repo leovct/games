@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/nature.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/shadow-fire.png" type="Texture" id=9]
 [ext_resource path="res://assets/red-heart.png" type="Texture" id=10]
+[ext_resource path="res://scenes/screenShake.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -31,12 +32,29 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitFader:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.517647, 0.168627, 0.168627, 0.631373 ), Color( 0.517647, 0.168627, 0.168627, 0 ) ]
+}
+
 [sub_resource type="CircleShape2D" id=2]
 radius = 300.0
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
-NBR_MAMOTHS = 1
+NBR_MAMOTHS = 10
+NBR_MAMOTHS_KILLED = 2
 GRASS_INSTANCES = 1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -137,9 +155,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HitFader" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.517647, 0.168627, 0.168627, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 autoplay = "Fade in"
 "anims/Fade in" = SubResource( 5 )
+anims/Hit = SubResource( 6 )
 
 [node name="Grass" type="Node2D" parent="."]
 
@@ -561,6 +588,8 @@ remote_path = NodePath("../../Camera2D")
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( 0, 5 )
 
+[node name="Arrows" type="Node2D" parent="."]
+
 [node name="FireCamp" parent="." instance=ExtResource( 8 )]
 position = Vector2( -45, -12 )
 scale = Vector2( 0.75, 0.75 )
@@ -575,6 +604,8 @@ texture = ExtResource( 9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
 
 [node name="Border" type="Area2D" parent="."]
 

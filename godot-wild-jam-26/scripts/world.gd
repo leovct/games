@@ -17,9 +17,12 @@ onready var heart1 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/He
 onready var heart2 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart2
 onready var heart3 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart3
 onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabel
+onready var animation_player = $CanvasLayer/AnimationPlayer
+onready var screen_shake = $Camera2D/ScreenShake
 
 export var WORLD_SIZE = 500
 export var NBR_MAMOTHS = 20
+export var NBR_MAMOTHS_KILLED = 20
 export var SPAWN_MIN_RADIUS = 200
 export var GRASS_INSTANCES = 1000
 export var EMPTY_RADIUS = 50
@@ -43,16 +46,23 @@ func _ready():
 func _process(_delta):
 	# spawn more mamoths
 	enemies = get_tree().current_scene.get_node("Enemies").get_children()
-	alive_enemies = []
-	for x in enemies:
-		if not x.dead:
-			alive_enemies.append(x)
-	if len(alive_enemies) < NBR_MAMOTHS:
-		spawn()
+	if player.score == NBR_MAMOTHS_KILLED:
+		for x in enemies:
+			x.queue_free()
+		for x in get_tree().current_scene.get_node("Arrows").get_children():
+			x.queue_free()
+	else:
+		alive_enemies = []
+		for x in enemies:
+			if not x.dead:
+				alive_enemies.append(x)
+		if len(alive_enemies) < NBR_MAMOTHS and len(enemies) <= 30:
+			spawn()
 	
-	score_label.text = str(player.score) + '/10'
+	# score
+	score_label.text = str(player.score) + '/' + str(NBR_MAMOTHS_KILLED)
 	
-	# player has only 3 lifes
+	# health
 	var arr = update_health(player.health)
 	heart1.texture = arr[0]
 	heart2.texture = arr[1]
@@ -67,7 +77,6 @@ func _process(_delta):
 func update_health(n):
 	var red_heart = int(n / 4)
 	var grey_heart = n % 4
-	print(str(red_heart) + ' ' + str(grey_heart))
 	var arr = []
 	
 	for _i in range(red_heart):
@@ -162,3 +171,8 @@ func _on_Border_body_exited(_body):
 
 func _on_enemy_attacked_a_player(damage):
 	player.health -= damage
+	animation_player.play("Hit")
+	screen_shake(0.1, 15, 4)
+	
+func screen_shake(duration, frequency, amplitude):
+	screen_shake.start(duration, frequency, amplitude, 0)
