@@ -1,8 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/player-shadow.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Dead"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ShadowSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -89,13 +118,14 @@ script = ExtResource( 2 )
 MOVE_SPEED = 50
 
 [node name="ShadowSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1, 8 )
 texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 12
-frame = 11
+hframes = 13
+frame = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -1, -6, 3, -6, 3, 3, 2, 3, 2, 8, -1, 8, -1, 4, -2, 4, -2, -2, -1, -2 )
@@ -106,6 +136,7 @@ update_scale = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
+anims/Dead = SubResource( 4 )
 anims/Idle = SubResource( 1 )
 anims/Run = SubResource( 2 )
 anims/Shoot = SubResource( 3 )

@@ -24,13 +24,16 @@ func _ready():
 	health = 3*4
 
 func _physics_process(delta):
-	match state:
-		States.IDLE:
-			idle()
-		States.RUN:
-			run(delta)
-		States.SHOOT:
-			shoot()
+	if health > 0:
+		match state:
+			States.IDLE:
+				idle()
+			States.RUN:
+				run(delta)
+			States.SHOOT:
+				shoot()
+	else:
+		animationPlayer.play("Dead")
 
 func idle():
 	animationPlayer.play("Idle")

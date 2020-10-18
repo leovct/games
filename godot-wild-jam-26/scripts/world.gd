@@ -19,6 +19,7 @@ onready var heart3 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/He
 onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabel
 onready var animation_player = $CanvasLayer/AnimationPlayer
 onready var screen_shake = $Camera2D/ScreenShake
+onready var die_timer = $DieTimer
 
 export var WORLD_SIZE = 500
 export var NBR_MAMOTHS = 20
@@ -30,6 +31,7 @@ export var EMPTY_RADIUS = 50
 #var blink_timer
 var enemies
 var alive_enemies
+var dead = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -47,10 +49,11 @@ func _process(_delta):
 	# spawn more mamoths
 	enemies = get_tree().current_scene.get_node("Enemies").get_children()
 	if player.score == NBR_MAMOTHS_KILLED:
-		for x in enemies:
-			x.queue_free()
-		for x in get_tree().current_scene.get_node("Arrows").get_children():
-			x.queue_free()
+		#for x in enemies:
+		#	x.queue_free()
+		#for x in get_tree().current_scene.get_node("Arrows").get_children():
+		#	x.queue_free()
+		pass
 	else:
 		alive_enemies = []
 		for x in enemies:
@@ -69,7 +72,11 @@ func _process(_delta):
 	heart3.texture = arr[2]
 	
 	if player.health <= 0:
-		var _r = get_tree().change_scene("res://scenes/deadScene.tscn")
+		shake(0.2, 20, 6)
+		animation_player.play("Die")
+		if !dead:
+			die_timer.start()
+			dead = true
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var _r = get_tree().change_scene("res://scenes/menu.tscn")
@@ -152,7 +159,7 @@ func _on_blink_timeout():
 	else:
 		toofar_label.percent_visible = 1
 
-func start_blinking(interval):
+func start_blinking(_interval):
 	toofar_label.percent_visible = 1
 	#blink_timer.set_wait_time(interval)
 	#blink_timer.start()
@@ -172,7 +179,10 @@ func _on_Border_body_exited(_body):
 func _on_enemy_attacked_a_player(damage):
 	player.health -= damage
 	animation_player.play("Hit")
-	screen_shake(0.1, 15, 4)
+	shake(0.1, 15, 4)
 	
-func screen_shake(duration, frequency, amplitude):
+func shake(duration, frequency, amplitude):
 	screen_shake.start(duration, frequency, amplitude, 0)
+
+func _on_DieTimer_timeout():
+	var _r = get_tree().change_scene("res://scenes/deadScene.tscn")

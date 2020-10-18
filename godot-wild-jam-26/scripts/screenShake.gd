@@ -8,13 +8,13 @@ var priority = 0
 
 onready var camera = get_parent()
 
-func start(duration = 0.2, frequency = 15, amplitude = 16, priority = 0):
-	if (priority >= self.priority):
-		self.priority = priority
-		self.amplitude = amplitude
+func start(_duration = 0.2, _frequency = 15, _amplitude = 16, _priority = 0):
+	if (_priority >= self.priority):
+		self.priority = _priority
+		self.amplitude = _amplitude
 
-		$Duration.wait_time = duration
-		$Frequency.wait_time = 1 / float(frequency)
+		$Duration.wait_time = _duration
+		$Frequency.wait_time = 1 / float(_frequency)
 		$Duration.start()
 		$Frequency.start()
 
