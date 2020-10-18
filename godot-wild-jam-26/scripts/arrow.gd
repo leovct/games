@@ -29,4 +29,5 @@ func _on_Arrow_body_entered(body):
 			if !body.dead:
 				body.health -= 1
 				body.dead = true
+				body.remove_from_group("Enemy")
 				emit_signal("enemy_shot")
