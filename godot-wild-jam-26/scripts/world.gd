@@ -48,11 +48,6 @@ func _ready():
 	# generate grass
 	generate_grass(GRASS_INSTANCES)
 	generate_wood(WOOD_INSTANCES)
-	# blinking
-	#blink_timer = Timer.new()
-	#blink_timer.connect("timeout", self, "_on_blink_timeout")
-	#var root_node = get_tree().current_scene
-	#root_node.add_child(blink_timer)
 
 func _process(_delta):
 	enemies = get_tree().current_scene.get_node("Enemies").get_children()
@@ -64,15 +59,20 @@ func _process(_delta):
 	if player.score >= NBR_MAMOTHS_KILLED:
 		# spawn boss mamoth
 		if !boss_spawned:
+			for _i in range(5):
+				shake(2, 20, 6)
+				animation_player.play("Die")
+			spawn_boss()
 			spawn_boss()
 			boss_spawned = true
 		else:
+			shake(0.1, 15, 4)
 			if boss.dead && not victory:
 				victory_timer.start()
 				victory = true
 	
 	# spawn small mamoths
-	if len(alive_enemies) < NBR_MAMOTHS and len(enemies) <= 30:
+	if len(alive_enemies) < NBR_MAMOTHS and len(enemies) <= 40:
 		spawn()
 	
 	# score
@@ -182,6 +182,10 @@ func spawn_boss():
 	boss.global_position = Vector2(rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE), rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE))
 	boss.scale = Vector2.ONE * 5
 	boss.SPEED = 3000
+	boss.DAMAGE = 4
+	boss.MAX_HEALTH = 10
+	boss.health = 10
+	boss.texture_progress.max_value = 10
 	boss.connect("attack_player", self, "_on_enemy_attacked_a_player")
 
 func rand_spawn(min_radius, max_radius):

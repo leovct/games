@@ -6,16 +6,25 @@ onready var attack_timer = $AttackTimer
 onready var animationPlayer = $AnimationPlayer
 onready var sprite = $Sprite
 onready var collisionShape = $CollisionShape
+onready var texture_progress = $TextureProgress
 
 signal attack_player
 
-const DAMAGE = 1
-
 export var SPEED = 6000
+export var MAX_HEALTH = 1
+export var DAMAGE = 1
+
 var move = Vector2.ZERO
 var player = null
 var can_attack = false
 var dead = false
+var health = MAX_HEALTH
+
+func _ready():
+	texture_progress.max_value = MAX_HEALTH
+
+func _process(_delta):
+	texture_progress.value = MAX_HEALTH - health
 
 func _physics_process(delta):
 	if player && !dead:

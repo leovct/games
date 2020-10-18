@@ -21,6 +21,12 @@ func _on_Arrow_body_entered(body):
 		z_index = body.z_index + 1
 		hit = true
 		sprite.frame = 1
-		if !body.dead:
-			body.dead = true
-			emit_signal("enemy_shot")
+		
+		if body.health > 1:
+			body.health -= 1
+			queue_free()
+		else:
+			if !body.dead:
+				body.health -= 1
+				body.dead = true
+				emit_signal("enemy_shot")

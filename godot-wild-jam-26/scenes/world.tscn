@@ -69,8 +69,8 @@ tracks/0/keys = {
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
-NBR_MAMOTHS = 10
-NBR_MAMOTHS_KILLED = 1
+NBR_MAMOTHS = 15
+NBR_MAMOTHS_KILLED = 15
 GRASS_INSTANCES = 1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -146,6 +146,19 @@ margin_right = 310.0
 margin_bottom = 16.0
 texture = ExtResource( 5 )
 stretch_mode = 4
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 310.0
+margin_bottom = 21.0
+min_value = 10.0
+max_value = 90.0
+step = 100.0
+value = 10.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Fader" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
