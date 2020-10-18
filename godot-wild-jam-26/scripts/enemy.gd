@@ -53,7 +53,6 @@ func _on_AttackArea_body_exited(body):
 
 func _on_AttackTimer_timeout():
 	if can_attack && !dead:
-		print("Attack !")
 		emit_signal("attack_player", DAMAGE)
 
 func _on_PerspectiveArea_body_entered(body):

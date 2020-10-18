@@ -5,10 +5,17 @@ const Grass1 = preload("res://assets/grass-1.png")
 const Grass2 = preload("res://assets/grass-2.png")
 const Grass3 = preload("res://assets/grass-3.png")
 const Grass4 = preload("res://assets/grass-4.png")
+const RedHeart = preload("res://assets/red-heart.png")
+const GreyHeart1 = preload("res://assets/three-quarter-grey-heart.png")
+const GreyHeart2 = preload("res://assets/half-grey-heart.png")
+const GreyHeart3 = preload("res://assets/quarter-grey-heart.png")
+const GreyHeart4 = preload("res://assets/grey-heart.png")
 
 onready var player = $Player
 onready var score_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/ScoreLabel
-onready var health_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/HealthLabel
+onready var heart1 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart1
+onready var heart2 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart2
+onready var heart3 = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Heart3
 onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabel
 
 export var WORLD_SIZE = 500
@@ -44,13 +51,37 @@ func _process(_delta):
 		spawn()
 	
 	score_label.text = str(player.score) + '/10'
-	health_label.text = str(player.health)
+	
+	# player has only 3 lifes
+	var arr = update_health(player.health)
+	heart1.texture = arr[0]
+	heart2.texture = arr[1]
+	heart3.texture = arr[2]
 	
 	if player.health <= 0:
 		var _r = get_tree().change_scene("res://scenes/deadScene.tscn")
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var _r = get_tree().change_scene("res://scenes/menu.tscn")
+
+func update_health(n):
+	var red_heart = int(n / 4)
+	var grey_heart = n % 4
+	print(str(red_heart) + ' ' + str(grey_heart))
+	var arr = []
+	
+	for _i in range(red_heart):
+		arr.append(RedHeart)
+	
+	match grey_heart:
+		1: arr.append(GreyHeart3)
+		2: arr.append(GreyHeart2)
+		3: arr.append(GreyHeart1)
+	
+	while len(arr) < 3:
+		arr.append(GreyHeart4)
+	
+	return arr
 
 func generate_grass(n):
 	for _i in range(n):

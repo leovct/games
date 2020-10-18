@@ -13,7 +13,7 @@ export var MOVE_SPEED = 200
 enum States {IDLE, RUN, SHOOT}
 var state
 var can_shoot
-var move
+var move = Vector2.ZERO
 var score
 var health
 
@@ -21,7 +21,7 @@ func _ready():
 	state = States.IDLE
 	can_shoot = true
 	score = 0
-	health = 3
+	health = 3*4
 
 func _physics_process(delta):
 	match state:
