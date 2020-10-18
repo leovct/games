@@ -1,6 +1,6 @@
 extends Node
 
-onready var start_label = $VBoxContainer/Start
+onready var start_label = $CenterContainer/VBoxContainer/Start
 
 var blink_timer
 

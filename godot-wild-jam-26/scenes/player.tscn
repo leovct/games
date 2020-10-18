@@ -114,6 +114,7 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 0
 script = ExtResource( 2 )
 MOVE_SPEED = 50
 
@@ -125,7 +126,6 @@ texture = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 13
-frame = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -1, -6, 3, -6, 3, 3, 2, 3, 2, 8, -1, 8, -1, 4, -2, 4, -2, -2, -1, -2 )

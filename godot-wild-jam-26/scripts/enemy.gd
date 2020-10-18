@@ -71,4 +71,3 @@ func create_dust_effect():
 		dust_position.x += 4
 	dust_position.y += 8
 	dust_effect.position = dust_position
-	#dust_effect.scale = 0.5 * Vector2.ONE

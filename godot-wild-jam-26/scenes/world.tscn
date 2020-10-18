@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/world.gd" type="Script" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://assets/shadow-fire.png" type="Texture" id=9]
 [ext_resource path="res://assets/red-heart.png" type="Texture" id=10]
 [ext_resource path="res://scenes/screenShake.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/wood-2.png" type="Texture" id=12]
+[ext_resource path="res://assets/wood-1.png" type="Texture" id=13]
+[ext_resource path="res://assets/wood-3.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -70,7 +73,7 @@ radius = 300.0
 [node name="World" type="Node"]
 script = ExtResource( 2 )
 NBR_MAMOTHS = 10
-NBR_MAMOTHS_KILLED = 2
+NBR_MAMOTHS_KILLED = 1
 GRASS_INSTANCES = 1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -192,6 +195,20 @@ autoplay = "Fade in"
 anims/Die = SubResource( 7 )
 "anims/Fade in" = SubResource( 5 )
 anims/Hit = SubResource( 6 )
+
+[node name="Wood" type="Node2D" parent="."]
+
+[node name="wood-1" type="Sprite" parent="Wood"]
+position = Vector2( 3, 9 )
+texture = ExtResource( 13 )
+
+[node name="wood-2" type="Sprite" parent="Wood"]
+position = Vector2( 19, 7 )
+texture = ExtResource( 14 )
+
+[node name="wood-3" type="Sprite" parent="Wood"]
+position = Vector2( 12, 17 )
+texture = ExtResource( 12 )
 
 [node name="Grass" type="Node2D" parent="."]
 
@@ -604,7 +621,11 @@ scale = Vector2( -1, 1 )
 position = Vector2( 142, 279 )
 scale = Vector2( -1, 1 )
 
+[node name="PalmTree15" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 8, -6 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
+z_index = 1
 MOVE_SPEED = 70
 
 [node name="RemoteTransform2D" parent="Player" index="3"]
@@ -612,12 +633,14 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( 0, 5 )
+z_index = 1
 
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="FireCamp" parent="." instance=ExtResource( 8 )]
 position = Vector2( -45, -12 )
 scale = Vector2( 0.75, 0.75 )
+z_index = 1
 
 [node name="Sprite" parent="FireCamp" index="0"]
 texture = ExtResource( 7 )
@@ -633,14 +656,18 @@ current = true
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
 
 [node name="Border" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Border"]
 shape = SubResource( 2 )
 
 [node name="DieTimer" type="Timer" parent="."]
+
+[node name="VictoryTimer" type="Timer" parent="."]
 [connection signal="body_entered" from="Border" to="." method="_on_Border_body_entered"]
 [connection signal="body_exited" from="Border" to="." method="_on_Border_body_exited"]
 [connection signal="timeout" from="DieTimer" to="." method="_on_DieTimer_timeout"]
+[connection signal="timeout" from="VictoryTimer" to="." method="_on_VictoryTimer_timeout"]
 
 [editable path="Player"]
 

@@ -5,6 +5,10 @@ const Grass1 = preload("res://assets/grass-1.png")
 const Grass2 = preload("res://assets/grass-2.png")
 const Grass3 = preload("res://assets/grass-3.png")
 const Grass4 = preload("res://assets/grass-4.png")
+const Wood1 = preload("res://assets/wood-1.png")
+const Wood2 = preload("res://assets/wood-2.png")
+const Wood3 = preload("res://assets/wood-3.png")
+const DeadTree = preload("res://assets/dead-tree.png")
 const RedHeart = preload("res://assets/red-heart.png")
 const GreyHeart1 = preload("res://assets/three-quarter-grey-heart.png")
 const GreyHeart2 = preload("res://assets/half-grey-heart.png")
@@ -20,18 +24,24 @@ onready var toofar_label = $CanvasLayer/MarginContainer/VBoxContainer/TooFarLabe
 onready var animation_player = $CanvasLayer/AnimationPlayer
 onready var screen_shake = $Camera2D/ScreenShake
 onready var die_timer = $DieTimer
+onready var victory_timer = $VictoryTimer
 
 export var WORLD_SIZE = 500
 export var NBR_MAMOTHS = 20
 export var NBR_MAMOTHS_KILLED = 20
 export var SPAWN_MIN_RADIUS = 200
 export var GRASS_INSTANCES = 1000
+export var WOOD_INSTANCES = 100
 export var EMPTY_RADIUS = 50
 
 #var blink_timer
 var enemies
 var alive_enemies
 var dead = false
+var boss
+var boss_spawned = false
+var boss_dead = false
+var victory = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -39,6 +49,7 @@ func _ready():
 	VisualServer.set_default_clear_color(Color("#dbb991"))
 	# generate grass
 	generate_grass(GRASS_INSTANCES)
+	generate_wood(WOOD_INSTANCES)
 	# blinking
 	#blink_timer = Timer.new()
 	#blink_timer.connect("timeout", self, "_on_blink_timeout")
@@ -46,21 +57,25 @@ func _ready():
 	#root_node.add_child(blink_timer)
 
 func _process(_delta):
-	# spawn more mamoths
 	enemies = get_tree().current_scene.get_node("Enemies").get_children()
-	if player.score == NBR_MAMOTHS_KILLED:
-		#for x in enemies:
-		#	x.queue_free()
-		#for x in get_tree().current_scene.get_node("Arrows").get_children():
-		#	x.queue_free()
-		pass
-	else:
-		alive_enemies = []
-		for x in enemies:
-			if not x.dead:
-				alive_enemies.append(x)
-		if len(alive_enemies) < NBR_MAMOTHS and len(enemies) <= 30:
-			spawn()
+	alive_enemies = []
+	for x in enemies:
+		if not x.dead:
+			alive_enemies.append(x)
+	
+	if player.score >= NBR_MAMOTHS_KILLED:
+		# spawn boss mamoth
+		if !boss_spawned:
+			spawn_boss()
+			boss_spawned = true
+		else:
+			if boss.dead && not victory:
+				victory_timer.start()
+				victory = true
+	
+	# spawn small mamoths
+	if len(alive_enemies) < NBR_MAMOTHS and len(enemies) <= 30:
+		spawn()
 	
 	# score
 	score_label.text = str(player.score) + '/' + str(NBR_MAMOTHS_KILLED)
@@ -107,6 +122,14 @@ func generate_grass(n):
 		root_node.get_node("Grass").add_child(grass)
 		grass.global_position = Vector2(rand_position(EMPTY_RADIUS, WORLD_SIZE))
 
+func generate_wood(n):
+	for _i in range(n):
+		rng.randomize()
+		var wood = choose_wood_type(rng.randi_range(1,4))
+		var root_node = get_tree().current_scene
+		root_node.get_node("Wood").add_child(wood)
+		wood.global_position = Vector2(rand_position(EMPTY_RADIUS, WORLD_SIZE))
+
 func rand_position(min_radius, max_radius):
 	rng.randomize()
 	var rand_x
@@ -136,6 +159,15 @@ func choose_grass_type(n):
 		4: grass.texture = Grass4
 	return grass
 
+func choose_wood_type(n):
+	var wood = Sprite.new()
+	match n:
+		1: wood.texture = Wood1
+		2: wood.texture = Wood2
+		3: wood.texture = Wood3
+		4: wood.texture = DeadTree
+	return wood
+
 func spawn():
 	var enemy = Enemy.instance()
 	enemy.add_to_group("Enemy")
@@ -143,6 +175,16 @@ func spawn():
 	root_node.get_node("Enemies").add_child(enemy)
 	enemy.global_position = Vector2(rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE), rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE))
 	enemy.connect("attack_player", self, "_on_enemy_attacked_a_player")
+
+func spawn_boss():
+	boss = Enemy.instance()
+	boss.add_to_group("Enemy")
+	var root_node = get_tree().current_scene
+	root_node.get_node("Enemies").add_child(boss)
+	boss.global_position = Vector2(rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE), rand_spawn(SPAWN_MIN_RADIUS, WORLD_SIZE))
+	boss.scale = Vector2.ONE * 5
+	boss.SPEED = 3000
+	boss.connect("attack_player", self, "_on_enemy_attacked_a_player")
 
 func rand_spawn(min_radius, max_radius):
 	rng.randomize()
@@ -186,3 +228,6 @@ func shake(duration, frequency, amplitude):
 
 func _on_DieTimer_timeout():
 	var _r = get_tree().change_scene("res://scenes/deadScene.tscn")
+
+func _on_VictoryTimer_timeout():
+	var _r = get_tree().change_scene("res://scenes/victoryScene.tscn")
