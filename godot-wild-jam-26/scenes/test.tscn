@@ -7,6 +7,7 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 25, 31 )
+MOVE_SPEED = 200
 
 [node name="Enemy" parent="." groups=[
 "Enemy",

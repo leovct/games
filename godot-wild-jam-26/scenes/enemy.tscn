@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/big-mamoth.png" type="Texture" id=2]
@@ -8,6 +8,23 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.90667
+
+[sub_resource type="Animation" id=7]
+resource_name = "Attack"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 9, 0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Dead"
@@ -23,7 +40,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 7 ]
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 1 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -40,7 +74,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -79,14 +113,18 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 8
+hframes = 10
+frame = 9
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.0350766 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Attack = SubResource( 7 )
 anims/Dead = SubResource( 2 )
+anims/Idle = SubResource( 8 )
 anims/Run = SubResource( 3 )
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -123,6 +161,9 @@ fill_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AttackTimer2" type="Timer" parent="."]
+wait_time = 0.3
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]
@@ -130,3 +171,4 @@ __meta__ = {
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="body_entered" from="PerspectiveArea" to="." method="_on_PerspectiveArea_body_entered"]
 [connection signal="body_exited" from="PerspectiveArea" to="." method="_on_PerspectiveArea_body_exited"]
+[connection signal="timeout" from="AttackTimer2" to="." method="_on_AttackTimer2_timeout"]

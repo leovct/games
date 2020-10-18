@@ -59,9 +59,11 @@ func _process(_delta):
 	if player.score >= NBR_MAMOTHS_KILLED:
 		# spawn boss mamoth
 		if !boss_spawned:
+			NBR_MAMOTHS = NBR_MAMOTHS / 2
 			for _i in range(5):
 				shake(2, 20, 6)
 				animation_player.play("Die")
+			spawn_boss()
 			spawn_boss()
 			spawn_boss()
 			boss_spawned = true
