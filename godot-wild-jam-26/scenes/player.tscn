@@ -117,7 +117,6 @@ script = ExtResource( 2 )
 MOVE_SPEED = 1000
 
 [node name="ShadowSprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1, 8 )
 texture = ExtResource( 3 )
 

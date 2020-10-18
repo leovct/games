@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.90667
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 0.3
 loop = true
@@ -26,8 +26,7 @@ tracks/0/keys = {
 "values": [ 9, 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Dead"
+[sub_resource type="Animation" id=3]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -43,7 +42,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "Idle"
 length = 0.3
 loop = true
@@ -60,8 +59,7 @@ tracks/0/keys = {
 "values": [ 1, 1 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Run"
+[sub_resource type="Animation" id=5]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -94,12 +92,12 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 350.0
+[sub_resource type="CircleShape2D" id=6]
+radius = 500.0
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=7]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 7.98563, 7.94644 )
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -122,22 +120,22 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Attack = SubResource( 7 )
-anims/Dead = SubResource( 2 )
-anims/Idle = SubResource( 8 )
-anims/Run = SubResource( 3 )
+anims/Attack = SubResource( 2 )
+anims/Dead = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Run = SubResource( 5 )
 
 [node name="DetectionArea" type="Area2D" parent="."]
 visible = false
 
 [node name="DetectionRange" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="AttackArea" type="Area2D" parent="."]
 visible = false
 
 [node name="AttackRange" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 autostart = true
@@ -147,7 +145,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerspectiveArea"]
 position = Vector2( 0, 16 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_left = -7.0
