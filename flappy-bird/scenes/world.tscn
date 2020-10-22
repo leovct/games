@@ -1,0 +1,361 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sounds/clap.wav" type="AudioStream" id=2]
+[ext_resource path="res://scripts/world.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/tilemap.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui/play-button-hover.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui/play-button-normal.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/ui/play-button-pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/sounds/music.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/hit.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/click.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/screenshake.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/CUBE.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/CUBE.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = SubResource( 3 )
+
+[sub_resource type="InputEventScreenTouch" id=9]
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 90, 1 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 90, 1 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 0, 0, 0, 0, 16, 0, 16, 4, 15, 4, 15, 16, 1, 16, 1, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 15, 16, 1, 16, 1, 0, 15, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 15, 16, 1, 16, 1, 0, 15, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 1, 0, 1, 0, 15, 0, 15, 12, 16, 12, 16, 16, 0, 16, 0, 12, 1, 12 )
+
+[sub_resource type="TileSet" id=17]
+1/name = "tilemap.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 13 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tilemap.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 16, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 14 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "tilemap.png 3"
+3/texture = ExtResource( 4 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 16, 0, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 15 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "tilemap.png 4"
+4/texture = ExtResource( 4 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 16, 16, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 16 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+
+[sub_resource type="GDScript" id=18]
+script/source = "extends TileMap
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="World" type="Node"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 175.0
+margin_bottom = 315.0
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 28.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "356"
+align = 1
+
+[node name="Space" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 170.0
+margin_bottom = 97.0
+text = "
+
+
+"
+
+[node name="GameOver" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 170.0
+margin_bottom = 209.0
+
+[node name="GameOver2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver"]
+margin_right = 170.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.760784, 0.0941176, 0.0941176, 1 )
+text = "Game Over"
+align = 1
+
+[node name="Space2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver"]
+margin_top = 25.0
+margin_right = 170.0
+margin_bottom = 39.0
+
+[node name="Summary" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver"]
+margin_top = 43.0
+margin_right = 170.0
+margin_bottom = 71.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary"]
+margin_left = 20.0
+margin_right = 150.0
+margin_bottom = 28.0
+custom_constants/separation = 0
+
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer"]
+margin_right = 130.0
+margin_bottom = 14.0
+
+[node name="Text" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer/Score"]
+margin_right = 60.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+text = "Score"
+valign = 2
+
+[node name="Value" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer/Score"]
+margin_left = 64.0
+margin_right = 130.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 6 )
+text = "356"
+align = 2
+valign = 2
+
+[node name="Best" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer"]
+margin_top = 14.0
+margin_right = 130.0
+margin_bottom = 28.0
+
+[node name="Text" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer/Best"]
+margin_right = 48.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.760784, 0.0941176, 0.0941176, 1 )
+text = "Best"
+valign = 2
+
+[node name="Value" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Summary/VBoxContainer/Best"]
+margin_left = 52.0
+margin_right = 130.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.760784, 0.0941176, 0.0941176, 1 )
+text = "1004"
+align = 2
+valign = 2
+
+[node name="Space3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver"]
+margin_top = 75.0
+margin_right = 170.0
+margin_bottom = 89.0
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer/GameOver"]
+margin_left = 71.0
+margin_top = 93.0
+margin_right = 98.0
+margin_bottom = 108.0
+size_flags_horizontal = 4
+shortcut = SubResource( 10 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.486275, 0.886275, 0.972549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomArea" type="Area2D" parent="."]
+position = Vector2( 90, 321 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea"]
+shape = SubResource( 11 )
+
+[node name="TopArea" type="Area2D" parent="."]
+position = Vector2( 90, -1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea"]
+shape = SubResource( 12 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = SubResource( 17 )
+cell_size = Vector2( 16, 16 )
+format = 1
+script = SubResource( 18 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30, 150 )
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+attenuation = 0.183011
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="ClapSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 90.7143, 158.75 )
+current = true
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/GameOver/Play" to="." method="_on_Play_pressed"]
+[connection signal="body_entered" from="BottomArea" to="." method="_on_BottomArea_body_entered"]
+[connection signal="body_entered" from="TopArea" to="." method="_on_TopArea_body_entered"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+
+[editable path="Player"]
