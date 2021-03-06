@@ -2,36 +2,43 @@
     <img src="img/godot.png" />
 </div>
 
-# Godot games and prototypes :video_game:
-![godot-ci export](https://github.com/leovct/godot/workflows/godot-ci%20export/badge.svg?branch=jam-gwj26&event=push)
 
-**This repository contains games and prototypes that I developed using the game engine [Godot](https://godotengine.org/).**  
+# Godot games 🎮
+This repository contains games and prototypes that I developed using the open source game engine [Godot](https://godotengine.org/). 
 
-_If you want to try one of them, **you can visit this [website](https://leovct.github.io/godot/)** or you can also [download Godot](https://godotengine.org/download/linux) (it is available on Linux, macOS and Windows). Then pull the repository and import the file "project.godot" of the game you want to play. Finally, start the project in Godot and launch it with F5._
-
+**➡️ Play my latest game in the browser [here](https://leovct.github.io/godot-games/)**
 
 ## Table of contents
 <detail>
 
-- [**Godot Wild Jam 26**](#godot-wild-jam-26)
-- [**Space Shooter :gun:**](#space-shooter-gun)
-- [**Piggy :pig:**](#piggy-pig)
-- [**Rocket Launch :rocket:**](#rocket-launch-rocket)
+[**👨🏼‍🚀 Metroidvania**](#👨🏼‍🚀-metroidvania)  
+[**🐦 Flappy Bird**](#🐦-flappy-bird)  
+[**⚔️ Godot Wild Jam 26: Bloodbath**](#⚔️-godot-wild-jam-26:-bloodbath)  
+[**🛸 Space Shooter**](#🛸-space-shooter)  
+[**🐖 Piggy**](#🐖-piggy)  
+[**🚀 Rocket Launch**](#🚀-rocket-launch)
 </details>
 
-## Godot Wild Jam 26
+## 👨🏼‍🚀 Metroidvania
 Work in progress...
+![Metroidvania](img/metroidvania.png)
 
-## Space Shooter :gun:
-![Space Shooter](img/space-shooter.png)
+## 🐦 Flappy Bird
+Avoid obstacles and progress as far as you can.
+![Flappy Bird](img/flappy-bird.png)
+
+## ⚔️ Godot Wild Jam 26: Bloodbath
+The village awaits its new leader... Survive the mammoths and you'll be covered in glory!
+![Bloodbath](godot-wild-jam-26/screenshots/bloodbath3.png)
+
+## 🛸 Space Shooter
 Defend your spaceship and shoot all the invaders.
+![Space Shooter](img/space-shooter.png)
 
-
-## Piggy :pig:
-![Piggy](img/piggy.png)
+## 🐖 Piggy
 Eat all the apples as fast as possible.
+![Piggy](img/piggy.png)
 
-
-## Rocket Launch :rocket:
-![Rocket Launch](img/rocket-launch.png)
+## 🚀 Rocket Launch
 Press the button to launch the rocket.
+![Rocket Launch](img/rocket-launch.png)
