@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://assets/player.svg" type="Texture" id=2]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Simulation.gd" type="Script" id=4]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.0004
-height = 10.8459
+[ext_resource path="res://scenes/StirlingEngineEntity.tscn" type="PackedScene" id=5]
 
 [node name="Simulation" type="Node"]
 script = ExtResource( 4 )
@@ -23,20 +19,14 @@ tile_data = PoolIntArray( -458748, 1, 0, -458747, 1, 0, -458746, 1, 0, -458745, 
 
 [node name="YSort" type="YSort" parent="GameWorld"]
 
-[node name="Player" type="KinematicBody2D" parent="GameWorld"]
-position = Vector2( 534.539, 265.488 )
-script = ExtResource( 3 )
-movement_speed = 350.0
+[node name="EntityPlacer" type="TileMap" parent="GameWorld/YSort"]
+mode = 1
+cell_size = Vector2( 100, 50 )
+cell_y_sort = true
+format = 1
 
-[node name="Sprite" type="Sprite" parent="GameWorld/Player"]
-texture = ExtResource( 2 )
+[node name="StirlingEngineEntity" parent="GameWorld/YSort/EntityPlacer" instance=ExtResource( 5 )]
+position = Vector2( 696.262, 226.201 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameWorld/Player"]
-position = Vector2( -0.113708, 23.9553 )
-rotation = 1.5708
-shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="GameWorld/Player"]
-current = true
-process_mode = 0
-smoothing_enabled = true
+[node name="Player" parent="GameWorld/YSort" instance=ExtResource( 2 )]
+movement_speed = 200.0
