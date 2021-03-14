@@ -16,7 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="simulation-game"
+run/main_scene="res://scenes/Simulation.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/test_width=1920
+window/size/test_height=1080
 
 [input]
 
