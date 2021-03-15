@@ -1,6 +1,11 @@
-#source: https://github.com/aBARICHELLO/godot-ci
+# source: https://github.com/aBARICHELLO/godot-ci
 name: "godot-ci export"
-on: push
+on:
+  push:
+    paths-ignore:
+    - 'README.md'
+    - 'LICENSE'
+    - 'img/'
 
 env:
   GODOT_VERSION: 3.2.3
@@ -76,10 +81,10 @@ jobs:
           name: web
           path: build/web
       # Installing rsync is needed in order to deploy to GitHub Pages. Without it, the build will fail.
-      - name: Install rsync 📚
+      - name: Install rsync
         run: |
           apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
