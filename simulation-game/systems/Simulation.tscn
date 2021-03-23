@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shared/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://systems/EntityPlacer.gd" type="Script" id=3]
 [ext_resource path="res://systems/Simulation.gd" type="Script" id=4]
-[ext_resource path="res://entities/StirlingEngineEntity.tscn" type="PackedScene" id=5]
 
 [node name="Simulation" type="Node"]
 script = ExtResource( 4 )
@@ -26,12 +25,6 @@ cell_size = Vector2( 100, 50 )
 cell_y_sort = true
 format = 1
 script = ExtResource( 3 )
-
-[node name="StirlingEngineEntity" parent="GameWorld/YSort/EntityPlacer" instance=ExtResource( 5 )]
-position = Vector2( 696.262, 226.201 )
-
-[node name="StirlingEngineEntity2" parent="GameWorld/YSort/EntityPlacer" instance=ExtResource( 5 )]
-position = Vector2( 399.418, 257.949 )
 
 [node name="Player" parent="GameWorld/YSort" instance=ExtResource( 2 )]
 movement_speed = 200.0

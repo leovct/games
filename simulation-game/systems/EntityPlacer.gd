@@ -1,13 +1,15 @@
 extends TileMap
 
 const MAX_PLACEMENT_DISTANCE := 300
-const OFFSET := Vector2(0,25)
+const POSITION_OFFSET := Vector2(0,25)
 
-onready var stirling_engine := preload("res://entities/StirlingEngineEntity.tscn")
+onready var _stirling_engine := preload("res://entities/StirlingEngineEntity.tscn")
+onready var _stirling_engine_blueprint := preload("res://entities/StirlingEngineBlueprint.tscn")
 
 var _tracker: EntityTracker
 var _ground: TileMap
 var _player: KinematicBody2D
+var _blueprint # TODO: Add type
 
 # setup sets up the EntityPlacer by listing all the entities present on the TileMap
 func setup(tracker: EntityTracker, ground: TileMap, player: KinematicBody2D):
@@ -33,14 +35,42 @@ func _unhandled_input(event: InputEvent):
 	# Place a new entity
 	if event.is_action_pressed("left_click"):
 		if not is_cell_occupied and is_close_to_player and is_on_ground:
-			var new_entity := stirling_engine.instance()
+			var new_entity := _stirling_engine.instance()
 			add_child(new_entity)
-			new_entity.global_position = map_to_world(cellv) + OFFSET
+			new_entity.global_position = map_to_world(cellv) + POSITION_OFFSET
 			_tracker.place_entity(new_entity, cellv)
 	
 	# Remove an entity
-	if event.is_action_pressed("right_click"):
+	elif event.is_action_pressed("right_click"):
 		if is_cell_occupied and is_close_to_player and is_on_ground:
 			var entity := _tracker.get_entity_at(cellv)
 			entity.queue_free()
 			_tracker.remove_entity(cellv)
+	
+	# select blueprint
+	elif event.is_action_pressed("ui_accept"):
+		_blueprint = _stirling_engine_blueprint.instance()
+		add_child(_blueprint)
+		_blueprint.global_position = map_to_world(cellv) + POSITION_OFFSET
+		
+		# Tint according to whether the current cell is valid or not.
+		if not is_cell_occupied and is_close_to_player and is_on_ground:
+			_blueprint.modulate = Color.white
+		else:
+			_blueprint.modulate = Color.red
+		#move_blueprint(cellv, not is_cell_occupied and is_close_to_player and is_on_ground)
+
+	# Move mouse with blueprint
+	elif event is InputEventMouseMotion:
+		if _blueprint != null:
+			move_blueprint(cellv, not is_cell_occupied and is_close_to_player and is_on_ground)
+		
+
+func move_blueprint(cellv: Vector2, b: bool) -> void:
+	_blueprint.global_position = map_to_world(cellv) + POSITION_OFFSET
+		
+	# Tint according to whether the current cell is valid or not.
+	if b:
+		_blueprint.modulate = Color.white
+	else:
+		_blueprint.modulate = Color.red
