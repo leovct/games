@@ -12,17 +12,27 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://Entity.gd"
+"path": "res://entities/Entity.gd"
+}, {
+"base": "Reference",
+"class": "EntityTracker",
+"language": "GDScript",
+"path": "res://systems/EntityTracker.gd"
 } ]
 _global_script_class_icons={
-"Entity": ""
+"Entity": "",
+"EntityTracker": ""
 }
 
 [application]
 
 config/name="simulation-game"
-run/main_scene="res://scenes/Simulation.tscn"
+run/main_scene="res://systems/Simulation.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://autoloads/Events.gd"
 
 [display]
 

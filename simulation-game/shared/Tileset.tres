@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://assets/tileset.svg" type="Texture" id=1]
+[ext_resource path="res://shared/tileset.svg" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 100.801, 25.2391, 100.801, 75.1389, 50.231, 100.591, -1.00842, 75.1389, -0.338623, 24.9042, 50.231, -1.55267 )
