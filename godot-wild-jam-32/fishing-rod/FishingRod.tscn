@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fishing-rod/FishingRod.gd" type="Script" id=1]
+[ext_resource path="res://fishing-rod/hammerhead.png" type="Texture" id=2]
+[ext_resource path="res://ui/fonts/Fish Grill Font [Regular] by 7NTypes.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.90867
+height = 7.89294
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="FishingRod" type="Area2D"]
+script = ExtResource( 1 )
+GRAVITY = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.595276, 12.0047 )
+shape = SubResource( 1 )
+
+[node name="HammerHead" type="Sprite" parent="."]
+modulate = Color( 0.678431, 0.235294, 0.235294, 1 )
+light_mask = -2147483647
+position = Vector2( 0.595276, 12.0047 )
+texture = ExtResource( 2 )
+
+[node name="FishCatch" type="Node2D" parent="."]
+position = Vector2( -3.99426, 17.6063 )
+
+[node name="CameraFollow" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="DepthMessage" type="Label" parent="."]
+visible = false
+margin_left = -197.178
+margin_top = 39.6875
+margin_right = 202.822
+margin_bottom = 72.6875
+custom_fonts/font = SubResource( 2 )
+text = "Upgrade your fishing rod to go deeper"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeightMessage" type="Label" parent="."]
+visible = false
+margin_left = -197.178
+margin_top = 39.6875
+margin_right = 202.822
+margin_bottom = 72.6875
+custom_fonts/font = SubResource( 3 )
+text = "Upgrade your fishing rod to fish bigger fish"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="area_entered" from="." to="." method="_on_FishingRod_area_entered"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

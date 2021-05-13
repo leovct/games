@@ -1,0 +1,553 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://boat/Boat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://fishing-rod/FishingRod.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fish/FishSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WaterShader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/fonts/Fish Grill Font [Regular] by 7NTypes.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://clouds.png" type="Texture" id=8]
+[ext_resource path="res://Cloud.gd" type="Script" id=9]
+[ext_resource path="res://ui/fonts/Fish Grill Font [Italic] by 7NTypes.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://music/music.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/coin.wav" type="AudioStream" id=12]
+[ext_resource path="res://SFX.gd" type="Script" id=13]
+[ext_resource path="res://sfx/fish-out-of-water.wav" type="AudioStream" id=14]
+[ext_resource path="res://sfx/waves.wav" type="AudioStream" id=15]
+[ext_resource path="res://sfx/upgrade.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/select.wav" type="AudioStream" id=17]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/clouds.png-fc13879e527516f791221521df7d71e4.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/clouds.png-fc13879e527516f791221521df7d71e4.stex"
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 900.0
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Node2D
+
+export (int) var fish_type = 1
+export (float) var SPAWN_RADIUS = 200.0
+export (float) var SPAWN_TIMER = 3.0
+export (int) var NUMBER_OF_ENTITIES = 10
+
+onready var spawn_timer: Timer = $SpawnTimer
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
+	spawn_timer.wait_time = SPAWN_TIMER
+
+func _on_SpawnTimer_timeout():
+	if get_child_count() < NUMBER_OF_ENTITIES:
+		spawn_fish()
+
+func spawn_fish() -> void:
+	var new_fish = load(\"res://fish/Fish\" + str(fish_type) + \".tscn\").instance()
+	self.add_child(new_fish)
+	var x_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	var y_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	new_fish.global_position += Vector2(x_pos, y_pos)
+"
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Node2D
+
+export (int) var fish_type = 1
+export (float) var SPAWN_RADIUS = 200.0
+export (float) var SPAWN_TIMER = 3.0
+export (int) var NUMBER_OF_ENTITIES = 10
+
+onready var spawn_timer: Timer = $SpawnTimer
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
+	spawn_timer.wait_time = SPAWN_TIMER
+
+func _on_SpawnTimer_timeout():
+	if get_child_count() < NUMBER_OF_ENTITIES:
+		spawn_fish()
+
+func spawn_fish() -> void:
+	var new_fish = load(\"res://fish/Fish\" + str(fish_type) + \".tscn\").instance()
+	self.add_child(new_fish)
+	var x_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	var y_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	new_fish.global_position += Vector2(x_pos, y_pos)
+"
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 1200.0
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Node2D
+
+export (int) var fish_type = 1
+export (float) var SPAWN_RADIUS = 200.0
+export (float) var SPAWN_TIMER = 3.0
+export (int) var NUMBER_OF_ENTITIES = 10
+
+onready var spawn_timer: Timer = $SpawnTimer
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
+	spawn_timer.wait_time = SPAWN_TIMER
+
+func _on_SpawnTimer_timeout():
+	if get_child_count() < NUMBER_OF_ENTITIES:
+		spawn_fish()
+
+func spawn_fish() -> void:
+	var new_fish = load(\"res://fish/Fish\" + str(fish_type) + \".tscn\").instance()
+	self.add_child(new_fish)
+	var x_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	var y_pos = rng.randf_range(-SPAWN_RADIUS, SPAWN_RADIUS)
+	new_fish.global_position += Vector2(x_pos, y_pos)
+"
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 2500.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 500.0
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Clouds" type="Node2D" parent="."]
+pause_mode = 2
+
+[node name="Cloud4" type="Sprite" parent="Clouds"]
+position = Vector2( 66.7757, 54.1766 )
+texture = SubResource( 1 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Cloud3" type="Sprite" parent="Clouds"]
+position = Vector2( 223.006, 57.9564 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud2" type="Sprite" parent="Clouds"]
+position = Vector2( 103.313, 107.093 )
+scale = Vector2( 4, 4 )
+texture = SubResource( 2 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud7" type="Sprite" parent="Clouds"]
+position = Vector2( 515.308, 144.891 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud6" type="Sprite" parent="Clouds"]
+position = Vector2( -105.833, 158.75 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud5" type="Sprite" parent="Clouds"]
+position = Vector2( 594.683, 40.3175 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud1" type="Sprite" parent="Clouds"]
+position = Vector2( 730.754, 83.1548 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Cloud8" type="Sprite" parent="Clouds"]
+position = Vector2( 1018.78, 58.1766 )
+texture = SubResource( 1 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Cloud9" type="Sprite" parent="Clouds"]
+position = Vector2( 1175.01, 61.9564 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud10" type="Sprite" parent="Clouds"]
+position = Vector2( 1055.31, 111.093 )
+scale = Vector2( 4, 4 )
+texture = SubResource( 2 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud11" type="Sprite" parent="Clouds"]
+position = Vector2( 1467.31, 148.891 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud12" type="Sprite" parent="Clouds"]
+position = Vector2( 846.167, 162.75 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud13" type="Sprite" parent="Clouds"]
+position = Vector2( 1546.68, 44.3175 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud14" type="Sprite" parent="Clouds"]
+position = Vector2( 1682.75, 87.1548 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Cloud15" type="Sprite" parent="Clouds"]
+position = Vector2( -799.184, 11.1529 )
+texture = SubResource( 1 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Cloud16" type="Sprite" parent="Clouds"]
+position = Vector2( -642.953, 14.9327 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud17" type="Sprite" parent="Clouds"]
+position = Vector2( -762.646, 64.0693 )
+scale = Vector2( 4, 4 )
+texture = SubResource( 2 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud18" type="Sprite" parent="Clouds"]
+position = Vector2( -350.651, 101.867 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud19" type="Sprite" parent="Clouds"]
+position = Vector2( -971.792, 115.726 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 2
+script = ExtResource( 9 )
+
+[node name="Cloud20" type="Sprite" parent="Clouds"]
+position = Vector2( -271.276, -2.70618 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+script = ExtResource( 9 )
+
+[node name="Cloud21" type="Sprite" parent="Clouds"]
+position = Vector2( -135.205, 40.1311 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+hframes = 3
+script = ExtResource( 9 )
+
+[node name="Boat" parent="." instance=ExtResource( 1 )]
+pause_mode = 2
+position = Vector2( 302.636, 266.17 )
+
+[node name="Fish" type="Node2D" parent="."]
+pause_mode = 2
+position = Vector2( 1.7818, 146.107 )
+
+[node name="Spawners" type="Node2D" parent="Fish"]
+position = Vector2( 595.24, -72.5134 )
+
+[node name="50m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( -222.578, 537.996 )
+
+[node name="Fish1" parent="Fish/Spawners/50m" instance=ExtResource( 5 )]
+SPAWN_TIMER = 0.1
+
+[node name="100m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( -223.659, 977.435 )
+
+[node name="Fish1" parent="Fish/Spawners/100m" instance=ExtResource( 5 )]
+SPAWN_TIMER = 0.1
+
+[node name="Fish2" parent="Fish/Spawners/100m" instance=ExtResource( 5 )]
+fish_type = 2
+
+[node name="Fish3" parent="Fish/Spawners/100m" instance=ExtResource( 5 )]
+fish_type = 3
+SPAWN_TIMER = 0.5
+
+[node name="250m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( -178.462, 1577.44 )
+
+[node name="Fish2" parent="Fish/Spawners/250m" instance=ExtResource( 5 )]
+fish_type = 2
+SPAWN_RADIUS = 900.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/250m/Fish2" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 3 )
+
+[node name="Fish3" parent="Fish/Spawners/250m" instance=ExtResource( 5 )]
+fish_type = 3
+SPAWN_RADIUS = 900.0
+SPAWN_TIMER = 0.5
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/250m/Fish3" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 3 )
+
+[node name="Fish4" parent="Fish/Spawners/250m" instance=ExtResource( 5 )]
+fish_type = 4
+SPAWN_RADIUS = 900.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/250m/Fish4" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 3 )
+
+[node name="Fish7" parent="Fish/Spawners/250m" instance=ExtResource( 5 )]
+script = SubResource( 4 )
+fish_type = 7
+SPAWN_RADIUS = 900.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/250m/Fish7" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 3 )
+
+[node name="500m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( -156.746, 3736.66 )
+
+[node name="Fish1" parent="Fish/Spawners/500m" instance=ExtResource( 5 )]
+script = SubResource( 5 )
+SPAWN_RADIUS = 1200.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish3" parent="Fish/Spawners/500m" instance=ExtResource( 5 )]
+script = SubResource( 5 )
+fish_type = 3
+SPAWN_RADIUS = 1200.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish5" parent="Fish/Spawners/500m" instance=ExtResource( 5 )]
+script = SubResource( 5 )
+fish_type = 5
+SPAWN_RADIUS = 1200.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish7" parent="Fish/Spawners/500m" instance=ExtResource( 5 )]
+script = SubResource( 5 )
+fish_type = 7
+SPAWN_RADIUS = 1200.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish8" parent="Fish/Spawners/500m" instance=ExtResource( 5 )]
+script = SubResource( 5 )
+fish_type = 8
+SPAWN_RADIUS = 1200.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/500m/Fish8" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 6 )
+
+[node name="1000m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( -75.8975, 7581.6 )
+
+[node name="Fish1" parent="Fish/Spawners/1000m" instance=ExtResource( 5 )]
+script = SubResource( 7 )
+SPAWN_RADIUS = 2500.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish5" parent="Fish/Spawners/1000m" instance=ExtResource( 5 )]
+script = SubResource( 7 )
+fish_type = 5
+SPAWN_RADIUS = 2500.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish6" parent="Fish/Spawners/1000m" instance=ExtResource( 5 )]
+script = SubResource( 7 )
+fish_type = 6
+SPAWN_RADIUS = 2500.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Fish8" parent="Fish/Spawners/1000m" instance=ExtResource( 5 )]
+script = SubResource( 7 )
+fish_type = 8
+SPAWN_RADIUS = 2500.0
+NUMBER_OF_ENTITIES = 50
+
+[node name="Test" parent="Fish/Spawners/1000m/Fish8" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 8 )
+
+[node name="2000m" type="Node2D" parent="Fish/Spawners"]
+position = Vector2( 42.7168, 15121.1 )
+
+[node name="Fish9" parent="Fish/Spawners/2000m" instance=ExtResource( 5 )]
+script = SubResource( 7 )
+fish_type = 9
+SPAWN_RADIUS = 500.0
+SPAWN_TIMER = 30.0
+
+[node name="Test" parent="Fish/Spawners/2000m/Fish9" index="1"]
+position = Vector2( 31.4292, 543.272 )
+shape = SubResource( 9 )
+
+[node name="FishingRod" parent="." instance=ExtResource( 3 )]
+position = Vector2( 456.548, 322.183 )
+ROD_SPEED = Vector2( 300, 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 456.548, 322.183 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 720
+smoothing_enabled = true
+smoothing_speed = 1.0
+
+[node name="CaptainMessage" type="Label" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 106.498
+margin_top = 227.421
+margin_right = 266.498
+margin_bottom = 271.421
+custom_fonts/font = SubResource( 10 )
+text = "aWeSomE!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CaptainMessageTimer" type="Timer" parent="."]
+pause_mode = 2
+
+[node name="Achievement" type="Label" parent="."]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 102.509
+margin_top = 419.733
+margin_right = 603.509
+margin_bottom = 463.733
+custom_fonts/font = SubResource( 11 )
+text = "New fish species discovered!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AchievementTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="WaterShader" parent="." instance=ExtResource( 6 )]
+position = Vector2( 370, 1570 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+position = Vector2( 302.541, 352.89 )
+stream = ExtResource( 11 )
+volume_db = 6.0
+autoplay = true
+max_distance = 10000.0
+
+[node name="SFX" type="Node2D" parent="."]
+pause_mode = 2
+position = Vector2( 303.448, 339.485 )
+script = ExtResource( 13 )
+
+[node name="CoinSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 12 )
+max_distance = 10000.0
+
+[node name="UpgradeSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 16 )
+max_distance = 10000.0
+
+[node name="FishCaughtSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 14 )
+max_distance = 10000.0
+
+[node name="WavesSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 15 )
+max_distance = 10000.0
+
+[node name="SelectFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 17 )
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
+[connection signal="timeout" from="CaptainMessageTimer" to="." method="_on_CaptainMessageTimer_timeout"]
+[connection signal="timeout" from="AchievementTimer" to="." method="_on_AchievementTimer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+
+[editable path="Fish/Spawners/250m/Fish2"]
+
+[editable path="Fish/Spawners/250m/Fish3"]
+
+[editable path="Fish/Spawners/250m/Fish4"]
+
+[editable path="Fish/Spawners/250m/Fish7"]
+
+[editable path="Fish/Spawners/500m/Fish8"]
+
+[editable path="Fish/Spawners/1000m/Fish8"]
+
+[editable path="Fish/Spawners/2000m/Fish9"]

@@ -1,0 +1,1673 @@
+[gd_scene load_steps=78 format=2]
+
+[ext_resource path="res://ui/fonts/Fish Grill Font [Regular] by 7NTypes.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/UI.gd" type="Script" id=2]
+[ext_resource path="res://ui/buttons/menu.png" type="Texture" id=3]
+[ext_resource path="res://fish/fish1.png" type="Texture" id=4]
+[ext_resource path="res://fish/fish2.png" type="Texture" id=5]
+[ext_resource path="res://fish/fish3.png" type="Texture" id=6]
+[ext_resource path="res://fish/fish4.png" type="Texture" id=7]
+[ext_resource path="res://fish/fish5.png" type="Texture" id=8]
+[ext_resource path="res://fish/fish6.png" type="Texture" id=9]
+[ext_resource path="res://fish/whale.png" type="Texture" id=10]
+[ext_resource path="res://ui/buttons/menu-hovered.png" type="Texture" id=11]
+[ext_resource path="res://ui/buttons/upgrade-hovered.png" type="Texture" id=12]
+[ext_resource path="res://ui/buttons/upgrade.png" type="Texture" id=13]
+[ext_resource path="res://ui/buttons/select-color-hovered.png" type="Texture" id=14]
+[ext_resource path="res://ui/buttons/select-color.png" type="Texture" id=15]
+[ext_resource path="res://ui/buttons/upgrade-disabled.png" type="Texture" id=16]
+[ext_resource path="res://ui/buttons/upgrade-pressed.png" type="Texture" id=17]
+[ext_resource path="res://ui/buttons/menu-pressed.png" type="Texture" id=18]
+[ext_resource path="res://ui/buttons/select-color-pressed.png" type="Texture" id=19]
+[ext_resource path="res://ui/buttons/close-hovered.png" type="Texture" id=20]
+[ext_resource path="res://ui/buttons/close.png" type="Texture" id=21]
+[ext_resource path="res://ui/buttons/close-pressed.png" type="Texture" id=22]
+[ext_resource path="res://ui/fonts/Fish Grill Font [Italic] by 7NTypes.otf" type="DynamicFontData" id=23]
+[ext_resource path="res://ui/buttons/next.png" type="Texture" id=24]
+[ext_resource path="res://ui/buttons/previous-pressed.png" type="Texture" id=25]
+[ext_resource path="res://ui/buttons/next-pressed.png" type="Texture" id=26]
+[ext_resource path="res://ui/buttons/previous-hovered.png" type="Texture" id=27]
+[ext_resource path="res://ui/buttons/next-hovered.png" type="Texture" id=28]
+[ext_resource path="res://ui/buttons/previous.png" type="Texture" id=29]
+[ext_resource path="res://ui/buttons/next-disabled.png" type="Texture" id=30]
+[ext_resource path="res://ui/buttons/previous-disabled.png" type="Texture" id=31]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=8]
+action = "ui_left"
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="InputEventAction" id=10]
+action = "ui_right"
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[sub_resource type="InputEventAction" id=12]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=13]
+shortcut = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=15]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=24]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=25]
+shortcut = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShortCut" id=31]
+shortcut = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShortCut" id=35]
+shortcut = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=36]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=37]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShortCut" id=38]
+shortcut = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShortCut" id=40]
+shortcut = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=42]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=43]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=44]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0, 1, 0.25098, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 1, 1, 1, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="UI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 680.0
+margin_bottom = 1040.0
+
+[node name="SplashScreen" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 680.0
+margin_bottom = 1040.0
+size_flags_vertical = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/VBoxContainer/SplashScreen"]
+margin_top = 141.0
+margin_right = 680.0
+margin_bottom = 444.0
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/SplashScreen"]
+margin_top = 494.0
+margin_right = 680.0
+margin_bottom = 585.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0.25098, 0.25098, 1 )
+text = "Another fishing game
+by oberyin"
+align = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/SplashScreen"]
+margin_left = 190.0
+margin_top = 635.0
+margin_right = 490.0
+margin_bottom = 749.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.839216, 0.25098, 0.25098, 1 )
+custom_colors/font_color_pressed = Color( 0.705882, 0.788235, 0.831373, 1 )
+shortcut = SubResource( 4 )
+text = "PLAY"
+flat = true
+
+[node name="HowToButton" type="Button" parent="MarginContainer/VBoxContainer/SplashScreen"]
+margin_left = 190.0
+margin_top = 799.0
+margin_right = 490.0
+margin_bottom = 899.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.839216, 0.25098, 0.25098, 1 )
+custom_colors/font_color_pressed = Color( 0.705882, 0.788235, 0.831373, 1 )
+text = "HOW TO PLAY"
+flat = true
+
+[node name="HowToPlay" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_right = 680.0
+margin_bottom = 1078.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay"]
+margin_top = 1.0
+margin_right = 680.0
+margin_bottom = 421.0
+custom_fonts/font = SubResource( 6 )
+text = "
+
+
+
+
+
+
+
+"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HowToPlay"]
+margin_top = 425.0
+margin_right = 680.0
+margin_bottom = 1033.0
+custom_constants/margin_right = 80
+custom_constants/margin_left = 80
+
+[node name="Story" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay/MarginContainer"]
+margin_left = 80.0
+margin_right = 600.0
+margin_bottom = 608.0
+rect_min_size = Vector2( 0, 520 )
+custom_fonts/font = SubResource( 7 )
+text = "You play as Jack, a pirate who has lost his entire crew after a shipwreck.
+
+ He decides to go into the fishing business, which is just as lucrative and much safer.
+
+A wise old man told him that there were seven very rare fish lurking in the abysses of the ocean... 
+"
+align = 1
+autowrap = true
+
+[node name="Catch" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay/MarginContainer"]
+visible = false
+margin_left = 80.0
+margin_top = 44.0
+margin_right = 600.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 520 )
+custom_fonts/font = SubResource( 7 )
+text = "Catch fish with your fishing rod!
+
+Move the fishing rod with LEFT and RIGHT ARROWS.
+
+Boost with SPACE and rewind it with the UP arrow.
+"
+align = 1
+autowrap = true
+
+[node name="FishMenu" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay/MarginContainer"]
+visible = false
+margin_left = 80.0
+margin_top = 44.0
+margin_right = 600.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 520 )
+custom_fonts/font = SubResource( 7 )
+text = "You can find all the types of fish you have caught in the \"Fish\" menu by pressing the button at the top left of the screen (or ESCAPE).
+
+What happens if you catch all seven species of fish? 
+"
+align = 1
+autowrap = true
+
+[node name="Upgrade" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay/MarginContainer"]
+visible = false
+margin_left = 80.0
+margin_top = 44.0
+margin_right = 600.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 520 )
+custom_fonts/font = SubResource( 7 )
+text = "Each fish you catch increases your currency balance.
+
+You may need to upgrade your fishing rod. This can be done in the \"Equipment\" menu.
+
+Upgrade the length to go deeper or the weight to fish bigger fish.
+"
+align = 1
+autowrap = true
+
+[node name="Customize" type="Label" parent="MarginContainer/VBoxContainer/HowToPlay/MarginContainer"]
+visible = false
+margin_left = 80.0
+margin_top = 44.0
+margin_right = 600.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 520 )
+custom_fonts/font = SubResource( 7 )
+text = "You can also customize your ship in the \"Equipment\" menu.
+
+Change the color of the sail and the flag according to your taste!
+"
+align = 1
+autowrap = true
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HowToPlay"]
+margin_top = 1037.0
+margin_right = 680.0
+margin_bottom = 1077.0
+alignment = 1
+
+[node name="PreviousButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HowToPlay/Buttons"]
+margin_left = 276.0
+margin_right = 316.0
+margin_bottom = 40.0
+shortcut = SubResource( 9 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 31 )
+
+[node name="NextButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HowToPlay/Buttons"]
+margin_left = 320.0
+margin_right = 360.0
+margin_bottom = 40.0
+shortcut = SubResource( 11 )
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 26 )
+texture_hover = ExtResource( 28 )
+texture_disabled = ExtResource( 30 )
+
+[node name="CloseHowToButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HowToPlay/Buttons"]
+margin_left = 364.0
+margin_right = 404.0
+margin_bottom = 40.0
+shortcut = SubResource( 13 )
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 20 )
+
+[node name="WinScreen" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_right = 680.0
+margin_bottom = 1040.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 14 )
+text = "
+
+
+
+
+
+
+
+
+
+
+AWESOME!
+
+You found the 7 species of fish!
+You are a real pirate fisherman my word!
+
+
+Thank you so much for playing my game
+I hope you enjoyed it as much as i enjoyed making it
+Do not hesitate to give me feedback on itch.io  :)
+
+See you again!
+oberyin"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_right = 680.0
+margin_bottom = 44.0
+
+[node name="MenuButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 44.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 16 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 11 )
+
+[node name="CloseButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 84.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 20 )
+
+[node name="DepthLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 382.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 17 )
+text = "0 m"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 386.0
+margin_right = 680.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 18 )
+text = "$0 "
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceMessage" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 996.0
+margin_right = 680.0
+margin_bottom = 1040.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+ $100 "
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceMessageTimer" type="Timer" parent="MarginContainer/VBoxContainer"]
+wait_time = 0.5
+
+[node name="Menu" type="PopupPanel" parent="MarginContainer/VBoxContainer"]
+margin_top = 762.0
+margin_right = 680.0
+margin_bottom = 1040.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 676.0
+margin_bottom = 274.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuTitles" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer"]
+margin_right = 672.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Fish" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles"]
+margin_right = 210.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 20 )
+shortcut_in_tooltip = false
+text = "Fish"
+
+[node name="Equipment" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles"]
+margin_left = 214.0
+margin_right = 424.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 21 )
+shortcut_in_tooltip = false
+text = "Equipment"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles"]
+margin_left = 428.0
+margin_right = 638.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 22 )
+shortcut_in_tooltip = false
+text = "Options"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles"]
+margin_left = 642.0
+margin_right = 671.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 23 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 25 )
+text = "X"
+
+[node name="FishGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer"]
+visible = false
+margin_top = 54.0
+margin_right = 672.0
+margin_bottom = 494.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 40
+columns = 3
+
+[node name="Fish1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_right = 221.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish1"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish1/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish1/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish1"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Nemo"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_left = 225.0
+margin_right = 446.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish2"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish2/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish2/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish2"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Speedy"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_left = 450.0
+margin_right = 671.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish3"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish3/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish3/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish3"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Gill"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_top = 160.0
+margin_right = 221.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish4"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish4/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish4/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish4"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Bob"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish5" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_left = 225.0
+margin_top = 160.0
+margin_right = 446.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish5"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish5/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish5/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish5"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Georges"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish6" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_left = 450.0
+margin_top = 160.0
+margin_right = 671.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish6"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish6/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish6/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish6"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Hippo"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Empty" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_top = 320.0
+margin_right = 221.0
+margin_bottom = 440.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish7" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid"]
+margin_left = 225.0
+margin_top = 320.0
+margin_right = 446.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish7"]
+margin_right = 221.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_vertical = 3
+
+[node name="\?" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish7/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+text = "?"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picture" type="TextureRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish7/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/FishGrid/Fish7"]
+visible = false
+margin_top = 124.0
+margin_right = 221.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 27 )
+text = "Willy"
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EquipmentContent" type="Panel" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer"]
+visible = false
+margin_top = 54.0
+margin_right = 672.0
+margin_bottom = 270.0
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 20.0
+margin_right = -40.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer"]
+margin_right = 592.0
+margin_bottom = 416.0
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_right = 592.0
+margin_bottom = 48.0
+text = "
+
+"
+
+[node name="FishingRodTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 592.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "-- FISHING ROD --"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LengthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 592.0
+margin_bottom = 136.0
+
+[node name="LengthTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/LengthContainer"]
+margin_right = 84.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 28 )
+text = "length"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LengthLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/LengthContainer"]
+margin_left = 88.0
+margin_right = 316.0
+margin_bottom = 40.0
+size_flags_horizontal = 7
+custom_fonts/font = SubResource( 29 )
+custom_colors/font_color = Color( 0.054902, 0.737255, 0.85098, 1 )
+text = "0 m"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/LengthContainer"]
+margin_left = 320.0
+margin_right = 548.0
+margin_bottom = 40.0
+size_flags_horizontal = 7
+custom_fonts/font = SubResource( 30 )
+text = "$ 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/LengthContainer"]
+margin_left = 552.0
+margin_right = 592.0
+margin_bottom = 40.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 31 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 16 )
+
+[node name="WeightContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 592.0
+margin_bottom = 180.0
+
+[node name="WeightTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/WeightContainer"]
+margin_right = 90.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 32 )
+text = "weight"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeightLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/WeightContainer"]
+margin_left = 94.0
+margin_right = 319.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 33 )
+custom_colors/font_color = Color( 0.054902, 0.737255, 0.85098, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "0 kg"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeLabel2" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/WeightContainer"]
+margin_left = 323.0
+margin_right = 548.0
+margin_bottom = 40.0
+size_flags_horizontal = 7
+custom_fonts/font = SubResource( 34 )
+text = "$ 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/WeightContainer"]
+margin_left = 552.0
+margin_right = 592.0
+margin_bottom = 40.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 35 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 16 )
+
+[node name="EmptyLabel2" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 184.0
+margin_right = 592.0
+margin_bottom = 232.0
+text = "
+
+"
+
+[node name="BoatTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 236.0
+margin_right = 592.0
+margin_bottom = 276.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 36 )
+text = "-- BOAT --"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SailContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 592.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SailColorTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/SailContainer"]
+margin_right = 120.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 37 )
+text = "sail color"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/SailContainer"]
+margin_left = 124.0
+margin_right = 548.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SailColor" type="ColorRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/SailContainer/HBoxContainer"]
+margin_left = 137.0
+margin_right = 287.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+color = Color( 0.980392, 0.980392, 0.980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/SailContainer"]
+margin_left = 552.0
+margin_right = 592.0
+margin_bottom = 40.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 38 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 14 )
+
+[node name="FlagContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 324.0
+margin_right = 592.0
+margin_bottom = 364.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlagColorTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/FlagContainer"]
+margin_right = 122.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 39 )
+text = "flag color"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/FlagContainer"]
+margin_left = 126.0
+margin_right = 548.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FlagColor" type="ColorRect" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/FlagContainer/HBoxContainer"]
+margin_left = 136.0
+margin_right = 286.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+color = Color( 0.839216, 0.25098, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/FlagContainer"]
+margin_left = 552.0
+margin_right = 592.0
+margin_bottom = 40.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 40 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 14 )
+
+[node name="EmptyLabel3" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer"]
+margin_top = 184.0
+margin_right = 592.0
+margin_bottom = 232.0
+text = "
+
+"
+
+[node name="ColorPanel" type="Panel" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer"]
+visible = false
+margin_top = 54.0
+margin_right = 672.0
+margin_bottom = 494.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer"]
+margin_right = 672.0
+margin_bottom = 440.0
+
+[node name="ColorPicker" type="ColorPicker" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 570.0
+margin_bottom = 452.0
+size_flags_horizontal = 3
+edit_alpha = false
+presets_enabled = false
+presets_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer"]
+margin_left = 562.0
+margin_right = 672.0
+margin_bottom = 440.0
+
+[node name="OkButton" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 110.0
+margin_bottom = 218.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 23 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 25 )
+text = "OK"
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 222.0
+margin_right = 110.0
+margin_bottom = 440.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 23 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 25 )
+text = "Cancel"
+
+[node name="OptionsPanel" type="Panel" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer"]
+visible = false
+margin_top = 479.0
+margin_right = 672.0
+margin_bottom = 479.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 20.0
+margin_right = -40.0
+margin_bottom = 374.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer"]
+margin_right = 592.0
+margin_bottom = 392.0
+
+[node name="VolumeTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "-- VOLUME --"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 592.0
+margin_bottom = 84.0
+
+[node name="MusicTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SliderContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer/HBoxContainer"]
+margin_right = 230.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer/HBoxContainer/SliderContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 223.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+step = 10.0
+value = 70.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer/HBoxContainer"]
+margin_left = 234.0
+margin_right = 294.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 29 )
+custom_colors/font_color = Color( 0.054902, 0.737255, 0.85098, 1 )
+text = "70"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 592.0
+margin_bottom = 128.0
+
+[node name="SFXTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 32 )
+text = "vfx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="SliderContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer/HBoxContainer"]
+margin_right = 230.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer/HBoxContainer/SliderContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 223.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+step = 10.0
+value = 50.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer/HBoxContainer"]
+margin_left = 234.0
+margin_right = 294.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 41 )
+custom_colors/font_color = Color( 0.054902, 0.737255, 0.85098, 1 )
+text = "50"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmptyLabel2" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 592.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 42 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTitle" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 592.0
+margin_bottom = 216.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 43 )
+text = "-- KEYS --"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keys" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer"]
+margin_top = 220.0
+margin_right = 592.0
+margin_bottom = 392.0
+
+[node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys"]
+margin_right = 592.0
+margin_bottom = 40.0
+
+[node name="KeyName" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "move left"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyValue" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "left arrow"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys"]
+margin_top = 44.0
+margin_right = 592.0
+margin_bottom = 84.0
+
+[node name="KeyName" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer2"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "move right"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyValue" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer2"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "right arrow"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys"]
+margin_top = 88.0
+margin_right = 592.0
+margin_bottom = 128.0
+
+[node name="KeyName" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer3"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "boost"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyValue" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer3"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "space"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys"]
+margin_top = 132.0
+margin_right = 592.0
+margin_bottom = 172.0
+
+[node name="KeyName" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer4"]
+margin_right = 294.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "rewind"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyValue" type="Label" parent="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/Keys/KeyContainer4"]
+margin_left = 298.0
+margin_right = 592.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 28 )
+text = "up arrow"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoostTimerLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 48.0
+margin_right = 680.0
+margin_bottom = 1026.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 44 )
+text = "PRESS SPACE TO GET A BOOST!"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoostProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 640.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 600, 10 )
+size_flags_horizontal = 4
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 45 )
+custom_styles/bg = SubResource( 46 )
+max_value = 2.0
+step = 0.001
+value = 2.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+
+[node name="BoostProgressTween" type="Tween" parent="MarginContainer/VBoxContainer"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SplashScreen/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SplashScreen/HowToButton" to="." method="_on_HowToButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HowToPlay/Buttons/PreviousButton" to="." method="_on_PreviousButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HowToPlay/Buttons/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HowToPlay/Buttons/CloseHowToButton" to="." method="_on_CloseHowToButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="timeout" from="MarginContainer/VBoxContainer/PriceMessageTimer" to="." method="_on_PriceMessageTimer_timeout"]
+[connection signal="popup_hide" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_Menu_popup_hide"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles/Fish" to="." method="_on_Fish_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles/Equipment" to="." method="_on_Equipment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/MenuTitles/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/LengthContainer/UpgradeButton" to="." method="_on_UpgradeButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/WeightContainer/UpgradeButton2" to="." method="_on_UpgradeButton2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/SailContainer/ColorButton" to="." method="_on_ColorButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/EquipmentContent/MarginContainer/VBoxContainer/FlagContainer/ColorButton2" to="." method="_on_ColorButton2_pressed"]
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer/ColorPicker" to="." method="_on_ColorPicker_color_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer/VBoxContainer/OkButton" to="." method="_on_OkButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/ColorPanel/MarginContainer/HBoxContainer/VBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/MusicContainer/HBoxContainer/SliderContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Menu/VBoxContainer/OptionsPanel/MarginContainer/VBoxContainer/SFXContainer/HBoxContainer/SliderContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="tween_step" from="MarginContainer/VBoxContainer/BoostProgressTween" to="." method="_on_BoostProgressTween_tween_step"]
