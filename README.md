@@ -12,6 +12,7 @@
 ## Table of contents
 <detail>
 
+[**🐟 Fishing game**](#-fishing-game)  
 [**🔧 Simulation Game**](#-simulation-game)  
 [**👨🏼‍🚀 Metroidvania**](#-metroidvania)  
 [**🐦 Flappy Bird**](#-flappy-bird)  
@@ -21,6 +22,11 @@
 [**🚀 Rocket Launch**](#-rocket-launch)
 </details>
 <br/><br/>
+
+## 🐟 Fishing game
+A relaxing fishing game with cute pixel art.
+Play it [here](https://oberyin.itch.io/another-fishing-game)!
+![Fishing game](img/fishing-game.png)
 
 ## 🔧 Simulation Game
 Work in progress...
@@ -39,6 +45,7 @@ Avoid obstacles and progress as far as you can.
 
 ## ⚔️ Godot Wild Jam 26: Bloodbath
 The village awaits its new leader... Survive the mammoths and you'll be covered in glory!
+Play it [here](https://oberyin.itch.io/bloodbath)!
 ![Bloodbath](godot-wild-jam-26/screenshots/bloodbath3.png)
 <br/><br/><br/>
 
