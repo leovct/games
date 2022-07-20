@@ -6,7 +6,7 @@
 [![godot-ci export](https://github.com/leovct/godot-games/actions/workflows/.godot-ci.yml/badge.svg?branch=master)](https://github.com/leovct/godot-games/actions/workflows/.godot-ci.yml)  
 
 **This repository contains games and prototypes that I developed using the open source game engine [Godot](https://godotengine.org/).**  
-**➡️ Play my latest game in the browser [here](https://leovct.github.io/godot/) :)**
+**➡️ Play my latest game in the browser [here](https://leovct.github.io/godot-games/) :)**
 <br/><br/>
 
 ## Table of contents
